@@ -1,0 +1,111 @@
+.authOverlay {
+  padding-top: 119px;
+  padding-bottom: 68px;
+  display: flex;
+  justify-content: center;
+}
+
+.authWrapper {
+  width: 580px;
+  padding: 50px 0;
+  display: flex;
+  flex-direction: column;
+  background: var(--app-light-purple);
+  border-radius: 10px;
+}
+
+.authTitle {
+  margin-bottom: 20px;
+  font-family: 'Comfortaa';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 38px;
+  line-height: 42px;
+  text-align: center;
+  color: var(--white);
+}
+
+.authInputList {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.authInputItem {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.authLabel {
+  padding-left: 20px;
+  color: var(--inactive-input-border);
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 20px;
+}
+
+.authInput {
+  width: 380px;
+  height: 70px;
+  padding-left: 18px;
+  background: var(--white);
+  font-size: 27px;
+  border: 2px solid var(--inactive-input-border);
+  border-radius: 10px;
+  caret-color: var(--purple);
+}
+
+.authInput:focus {
+  outline: none;
+  border: 2px solid var(--pink);
+}
+
+.authBtnWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.authFormSubmit {
+  width: 380px;
+  height: 70px;
+  margin-bottom: 15px;
+  background: var(--main-gradient);
+  border: none;
+  border-radius: 10px;
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 25px;
+  color: var(--white);
+}
+
+.authFormSubmit:hover {
+  cursor: url('../../../../../assets/svg/customHoverCursor.svg'), pointer;
+  background: var(--button-hover-gradient);
+}
+
+.authFormSubmit:focus {
+  background: var(--button-focus-gradient);
+}
+
+.authFormSubmit:active {
+  background: var(--blue);
+}
+
+.authInputError {
+  padding-top: 5px;
+  padding-left: 15px;
+  color: red;
+}
+
+.authBtnWrapper {
+  display: flex;
+  flex-direction: column;
+}

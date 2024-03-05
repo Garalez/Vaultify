@@ -1,0 +1,131 @@
+.historyTitle {
+  margin-bottom: 14px;
+  font-family: 'Comfortaa';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 26px;
+  line-height: 29px;
+  color: var(--white);
+}
+
+.historyTableBackground {
+  height: 467px;
+  padding: 21px 20px;
+  background-color: var(--app-light-purple);
+  border-radius: 10px;
+}
+
+.historyTableWrapper {
+  height: 430px;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.historyTableWrapper::-webkit-scrollbar {
+  width: 3px;
+}
+
+.historyTableWrapper::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.historyTableWrapper::-webkit-scrollbar-thumb {
+  background: var(--inactive-input-border);
+  border-radius: 1px;
+}
+
+.historyTableWrapper::-webkit-scrollbar-thumb:hover {
+  background: var(--active-tab);
+}
+
+.historyTableHeading {
+  padding: 0 147px 17px 0;
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 20px;
+  color: var(--inactive-input-border);
+}
+
+.historyTableHeading:nth-child(2) {
+  padding-left: 19px;
+  padding-right: 134px;
+}
+
+.historyTableHeading:nth-child(3) {
+  padding-left: 12px;
+  padding-right: 110px;
+}
+
+.historyTableCell {
+  position: relative;
+  padding: 15px 0 9px 0;
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 20px;
+  color: var(--white);
+}
+
+.historyTableCellAcc {
+  width: 90px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.historyTableCellAcc .historyTableCelltooltiptext {
+  position: absolute;
+  padding: 6px;
+  border-radius: 7px;
+  top: 0;
+  left: -2px;
+  z-index: 1;
+  background-color: var(--purple);
+  visibility: hidden;
+}
+
+.historyTableCellAcc:hover .historyTableCelltooltiptext {
+  visibility: visible;
+}
+
+.expenses {
+  color: var(--pink);
+}
+
+.historyTableCell:nth-child(2n) {
+  padding-left: 20px;
+}
+
+.historyTableCell:nth-child(3n) {
+  width: fit-content;
+  padding-left: 12px;
+}
+
+.historyTableThead {
+  border-bottom: 1px solid var(--purple);
+}
+
+.historyTable {
+  width: 100%;
+  border: none;
+  border-collapse: collapse;
+}
+
+.historyTableHeading,
+.historyTableCell {
+  border-left: 1px solid var(--purple);
+  border-right: 1px solid var(--purple);
+}
+
+.historyTableHeading:first-child,
+.historyTableCell:first-child {
+  border-left: none;
+}
+
+.historyTableHeading:last-child,
+.historyTableCell:last-child {
+  border-right: none;
+}

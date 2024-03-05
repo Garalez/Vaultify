@@ -1,0 +1,44 @@
+.copyrightsLogoWrapper {
+  margin-right: 4.25vw;
+}
+
+.platformLink {
+  display: flex;
+  align-items: center;
+  color: var(--white);
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 30px;
+  cursor: pointer;
+}
+
+.platformLogo {
+  margin-right: 8px;
+}
+
+@media (min-width: 1440px) {
+  .copyrightsLogoWrapper {
+    margin-right: 59px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .copyrightsLogoWrapper {
+    margin-right: 4.44vw;
+  }
+}
+
+@media (max-width: 768px) {
+  .copyrightsLogoWrapper {
+    margin-bottom: 22px;
+    margin-right: 0;
+  }
+}
+
+@media (max-width: 320px) {
+  .copyrightsLogoWrapper {
+    margin-bottom: 19px;
+  }
+}

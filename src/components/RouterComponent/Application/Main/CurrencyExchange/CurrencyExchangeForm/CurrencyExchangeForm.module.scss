@@ -1,0 +1,163 @@
+.currencyExchange {
+  padding: 16px 16px 21px 17px;
+  border-radius: 10px;
+  background-color: var(--app-light-purple);
+}
+
+.currencyExchangeTitle {
+  padding-left: 3px;
+  margin-bottom: 13px;
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 27px;
+  color: var(--white);
+}
+
+.currencyExchangeForm {
+  display: flex;
+  flex-direction: column;
+}
+
+.currencyExchangeList {
+  margin-bottom: 24px;
+  display: flex;
+}
+
+.currencyExchangeItem {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.currencyExchangeItem:nth-child(1) {
+  margin-right: 35px;
+}
+
+.currencyExchangeItem:nth-child(2) {
+  margin-right: 32px;
+}
+
+.currencyExchangeLabel {
+  padding-left: 10px;
+  margin-bottom: 3px;
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 20px;
+  color: var(--inactive-input-border);
+  cursor: pointer;
+}
+
+.currencyExchangeCustomSelect {
+  padding-left: 10px;
+  padding-right: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  height: 37px;
+  width: 160px;
+  background-color: var(--white);
+  border-radius: 6px;
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 100%;
+  color: var(--purple);
+  cursor: pointer;
+}
+
+.selectArrow {
+  transform: rotate(180deg);
+}
+
+.currencyExchangeSelectList {
+  width: 100%;
+  padding-top: 10px;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  left: 0;
+  top: 50px;
+  background-color: var(--white);
+  border-radius: 6px;
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 100%;
+  color: var(--purple);
+  cursor: pointer;
+}
+
+.currencyExchangeSelectItem {
+  padding-left: 10px;
+  padding-bottom: 5px;
+  padding-top: 8px;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.currencyExchangeSelectItem:hover {
+  background-color: var(--pink);
+  color: var(--white);
+}
+
+.currencyExchangeSelectItem::after {
+  width: 100%;
+  height: 2px;
+  position: absolute;
+  content: '';
+  top: 0;
+  left: 0;
+  background: var(--purple);
+}
+
+.currencyExchangeInput {
+  padding: 0 10px;
+  height: 37px;
+  width: 160px;
+  border-radius: 6px;
+  border: none;
+}
+
+.currencyExchangeInput:focus {
+  outline: 2px solid var(--pink);
+}
+
+.currencyExchangeSubmitWrapper {
+  align-self: flex-end;
+  padding-right: 4px;
+}
+
+.currencyExchangeSubmit {
+  width: 147px;
+  height: 37px;
+  background: var(--main-gradient);
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 25px;
+  color: var(--white);
+  border: none;
+  border-radius: 8px;
+}
+
+.currencyExchangeSubmit:hover {
+  cursor: url('../../../../../../assets/svg/customHoverCursor.svg'), pointer;
+  background: var(--button-hover-gradient);
+}
+
+.currencyExchangeSubmit:focus {
+  background: var(--button-focus-gradient);
+}
+
+.currencyExchangeSubmit:active {
+  background: var(--blue);
+}

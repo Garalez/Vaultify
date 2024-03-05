@@ -1,0 +1,42 @@
+.myCurrencies {
+  padding: 15px 0 0 26px;
+}
+
+.myCurrenciesTitle {
+  margin-bottom: 16px;
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 20px;
+  color: var(--white);
+}
+
+.myCurrenciesList {
+  display: flex;
+  gap: 16px;
+}
+
+.myCurrenciesItem {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.myCurrenciesName {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 20px;
+  color: var(--inactive-input-border);
+}
+
+.myCurrenciesQuantity {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 20px;
+  color: var(--white);
+}

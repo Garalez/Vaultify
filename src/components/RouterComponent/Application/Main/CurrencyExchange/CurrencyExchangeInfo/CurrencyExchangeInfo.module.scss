@@ -1,0 +1,73 @@
+.rate {
+  height: fit-content;
+  width: 580px;
+  padding-right: 66px;
+  padding-top: 16px;
+  padding-left: 20px;
+  padding-bottom: 27px;
+  border-radius: 10px;
+  background: var(--app-light-purple);
+}
+
+.rateTitle {
+  margin-bottom: 20px;
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 27px;
+  color: var(--white);
+}
+
+.rateList {
+  height: 260px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  color: var(--white);
+}
+
+.rateItem {
+  display: flex;
+  justify-content: space-between;
+}
+
+.rateUnderlineWrapper {
+  width: 100%;
+  padding-bottom: 3px;
+  align-self: flex-end;
+}
+
+.rateUnderline {
+  width: 100%;
+  height: 1px;
+  background-color: var(--purple);
+}
+
+.rateName {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 20px;
+}
+
+.rateRatio {
+  display: flex;
+  gap: 6px;
+}
+
+.rateRatioNumber {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 100%;
+}
+
+.rateRatioImgWrapper {
+  width: 9px;
+  display: flex;
+  align-items: flex-start;
+  padding-top: 4px;
+}

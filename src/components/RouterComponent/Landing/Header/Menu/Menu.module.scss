@@ -1,0 +1,22 @@
+.navigate {
+  display: flex;
+  align-items: center;
+}
+
+.list {
+  display: flex;
+  gap: 40px;
+}
+
+.item {
+  color: var(--white);
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 20px;
+}
+
+.link:hover {
+  color: var(--pink);
+}

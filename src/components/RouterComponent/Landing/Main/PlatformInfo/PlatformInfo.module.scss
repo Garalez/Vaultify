@@ -1,0 +1,227 @@
+.infoSection {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  padding: 16px 0 50px 50px;
+}
+
+.textWrapper {
+  display: flex;
+  flex-direction: column;
+  margin-right: 6.2vw;
+  max-width: 471px;
+  align-self: center;
+  padding-top: 135px;
+}
+
+.title {
+  margin-bottom: 20px;
+  font-family: 'Comfortaa';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 45px;
+}
+
+.subtitle {
+  max-width: 380px;
+  margin-bottom: 50px;
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 130%;
+}
+
+.registrationLink {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 380px;
+  height: 70px;
+  background: var(--main-gradient);
+  color: var(--white);
+  border-radius: 10px;
+  border: none;
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 25px;
+}
+
+.registrationLink:hover {
+  background: var(--main-gradient-hover);
+  color: var(--white);
+}
+
+.registrationLink:focus {
+  background: var(--main-gradient-focus);
+  color: var(--white);
+}
+
+.registrationLink:disabled {
+  background: var(--grey);
+  color: var(--white);
+  cursor: initial;
+}
+
+.rectangle {
+  position: absolute;
+  top: -20%;
+  right: -30%;
+  width: 86.7%;
+  height: 1021px;
+  background: linear-gradient(
+    87.4deg,
+    #2e00b1 -11.74%,
+    #8100bd 48.81%,
+    #a400be 113.27%
+  );
+  border-radius: 0px 0px 0px 150px;
+  transform: rotate(21.28deg);
+  overflow: hidden;
+  z-index: -1;
+}
+
+@media (max-width: 1024px) {
+  .infoSection {
+    padding: 30px 0 50px 22px;
+  }
+
+  .textWrapper {
+    margin-right: 5.81vw;
+    max-width: 471px;
+    padding-top: 137px;
+  }
+
+  .rectangle {
+    top: -22.56%;
+    right: -30%;
+    width: 94.2%;
+    height: 978px;
+  }
+}
+
+@media (max-width: 768px) {
+  .infoSection {
+    padding: 11px 0 50px 0px;
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+
+  .title {
+    font-size: 5.2vw;
+  }
+  
+  .subtitle {
+    text-align: center;
+    font-size: 2.32vw;
+  }
+
+  .img {
+    width: 455px;
+    height: 407.44px;
+  }
+
+  .imageWrapper {
+    margin-bottom: 40px;
+  }
+
+  .textWrapper {
+    margin-right: 0;
+    max-width: 471px;
+    padding-top: 0;
+    align-items: center;
+  }
+
+  .registrationLink {
+    width: 49.5vw;
+    font-size: 2.35vw;
+  }
+
+  .rectangle {
+    top: -11.44%;
+    right: -80%;
+    width: 132.6%;
+    height: 919px;
+    transform: rotate(31.99deg);
+    border-radius: 0px 0px 0px 100px;
+  }
+}
+
+@media (max-width: 550px) {
+  .title {
+    font-size: 6.2vw;
+  }
+  
+  .subtitle {
+    text-align: center;
+    font-size: 3.32vw;
+    margin-bottom: 7vw;
+  }
+
+  .registrationLink {
+    width: 56.5vw;
+    font-size: 3vw;
+  }
+
+  .rectangle {
+    top: -11.44%;
+    right: -80%;
+    width: 132.6%;
+    height: 919px;
+    transform: rotate(31.99deg);
+    border-radius: 0px 0px 0px 100px;
+  }
+}
+
+@media (max-width: 320px) {
+  .infoSection {
+    padding: 11px 0 30px 0px;
+  }
+
+  .img {
+    width: 290px;
+    height: 260px;
+  }
+
+  .imageWrapper {
+    margin-bottom: 40px;
+  }
+
+  .textWrapper {
+    margin-right: 0;
+    max-width: 471px;
+    padding-top: 0;
+    align-items: center;
+  }
+
+  .title {
+    margin-bottom: 11px;
+    font-size: 19px;
+    line-height: 21px;
+  }
+  
+  .subtitle {
+    max-width: 290px;
+    margin-bottom: 29px;
+    font-size: 14px;
+  }
+
+  .rectangle {
+    top: -24.13%;
+    right: -117%;
+    width: 104.7%;
+    height: 1058px;
+    transform: rotate(37.65deg);
+    border-radius: 0px 0px 0px 80px;
+  }
+
+  .registrationLink {  
+    width: 290px;
+    height: 50px;
+    font-size: 16px;
+    line-height: 22px;
+  }
+}

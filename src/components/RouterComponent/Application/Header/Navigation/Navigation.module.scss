@@ -1,0 +1,35 @@
+.navigation {
+  display: flex;
+  align-items: center;
+}
+
+.navList {
+  display: flex;
+  gap: 30px;
+}
+
+.navItemButton {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 20px;
+  color: var(--white);
+  background-color: transparent;
+  border: none;
+}
+
+.navItemButton:last-child {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.navItemButton:hover {
+  color: var(--pink);
+}
+
+.navItemButton:hover .navItemExitImg path {
+  fill: var(--pink);
+}

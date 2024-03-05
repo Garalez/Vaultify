@@ -1,0 +1,84 @@
+.graphTitle {
+  margin-bottom: 23px;
+  font-family: 'Comfortaa';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 26px;
+  line-height: 29px;
+  color: var(--white);
+}
+
+.graphWrapper {
+  width: 233.52px;
+  height: 237px;
+  margin-right: 37px;
+}
+
+.graphDataWrapper {
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+}
+
+.graphDateList {
+  margin-right: 37px;
+  padding-top: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.graphBalanceList {
+  display: flex;
+  padding-top: 5px;
+  gap: 16px;
+}
+
+.graphBalanceItem {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.graphBalanceItemText:first-child {
+  padding-left: 25px;
+}
+
+.graphBalanceItemText {
+  display: flex;
+  gap: 10px;
+}
+
+.graphBalanceItem:first-child {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 20px;
+  color: var(--inactive-input-border);
+}
+
+.graphBalanceItem:not(:first-child) {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 20px;
+  color: var(--white);
+}
+
+.graphButton {  
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 20px;
+  color: var(--white);
+  background: transparent;
+  border: none;
+}
+
+.graphButtonActive {
+  color: var(--pink);
+}
+

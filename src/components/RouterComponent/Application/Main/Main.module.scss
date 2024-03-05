@@ -1,0 +1,70 @@
+.mainWrapper {
+  min-height: calc(100vh - 74px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: var(--purple);
+}
+
+.footer {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  background: var(--purple);
+}
+
+.copyrightsWrapper {
+  width: 100%;
+  max-width: 1440px;
+  padding: 40px 40px 51px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  justify-self: flex-end;
+}
+
+.copyrightsMark {
+  align-self: flex-end;
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 20px;
+  color: var(--white);
+}
+
+.logoLink {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  margin-right: 8px;
+}
+
+.logoName {
+  color: var(--white);
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 30px;
+}
+
+.routeWrapper {
+  min-height: calc(100vh - 203px);
+}
+
+@media(max-width: 375px) {
+  .copyrightsWrapper {
+    flex-direction: column;
+  }
+
+  .logoLink {
+    margin-bottom: 15px;
+  }
+
+  .copyrightsMark {
+    align-self: center;
+  }
+}

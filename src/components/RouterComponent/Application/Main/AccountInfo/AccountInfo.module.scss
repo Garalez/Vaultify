@@ -1,0 +1,243 @@
+.accountWrapper {
+  padding: 70px 0 40px 0;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.accountTitleWrapper {
+  margin-bottom: 64px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.accountTitle {
+  padding-top: 10px;
+  font-family: 'Comfortaa';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 45px;
+  color: var(--white);
+}
+
+.accountBtn {
+  width: 241px;
+  height: 49px;
+  background: var(--main-gradient);
+  border: none;
+  border-radius: 8px;
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 25px;
+  color: var(--white);
+}
+
+.accountBtn:hover {
+  cursor: url('../../../../../assets/svg/customHoverCursor.svg'), pointer;
+  background: var(--button-hover-gradient);
+}
+
+.accountBtn:focus {
+  background: var(--button-focus-gradient);
+}
+
+.accountBtn:active {
+  background: var(--blue);
+}
+
+.accountInfoWrapper {
+  margin-bottom: 14px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.accountSubtitle {
+  font-family: 'Comfortaa';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 26px;
+  line-height: 29px;
+  color: var(--white);
+}
+
+.accountSortText {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 20px;
+  color: var(--inactive-input-border);
+}
+
+.accountSort {
+  align-self: flex-start;
+  padding-top: 2px;
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 100%;
+  background: transparent;
+  border: none;
+  color: var(--white);
+}
+
+.accountList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.accountItem {
+  width: 380px;
+  height: 170px;
+  padding-top: 14px;
+  padding-left: 18px;
+  padding-right: 18px;
+  background: var(--app-light-purple);
+  border: 2px solid transparent;
+  border-radius: 10px;
+}
+
+.accountItem:hover {
+  cursor: url('../../../../../assets/svg/customHoverCursor.svg'), pointer;
+  border: 2px solid var(--pink);
+}
+
+.accountNumber {
+  margin-bottom: 15px;
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 20px;
+  color: var(--inactive-input-border);
+}
+
+.accountAmount {
+  margin-bottom: 18px;
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 44px;
+  color: var(--white);
+}
+
+.accountInfo {
+  display: flex;
+  justify-content: space-between;
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 20px;
+  color: var(--inactive-input-border);
+}
+
+.accountInfoTextWrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.accountSortWrapper {
+  position: relative;
+}
+
+.accountSortTextWrapper {
+  display: flex;
+  gap: 15px;
+  padding-right: 22px;
+  align-self: flex-end;
+  cursor: pointer;
+}
+
+.currencyExchangeCustomSelect {
+  padding-left: 10px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  height: 37px;
+  width: 160px;
+  background-color: var(--white);
+  border-radius: 6px;
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 100%;
+  color: var(--purple);
+  cursor: pointer;
+}
+
+.currencyExchangeCustomSelect::after {
+  position: absolute;
+  width: 9px;
+  height: 8px;
+  content: '';
+  top: 16px;
+  right: 16px;
+  background-color: transparent;
+  background-repeat: no-repeat;
+}
+
+.accountSortSelectList {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  left: 0;
+  top: 20px;
+  background-color: var(--white);
+  border-radius: 6px;
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 100%;
+  color: var(--purple);
+  cursor: pointer;
+}
+
+.closed {
+  display: none;
+}
+
+.opened {
+  display: flex;
+}
+
+.accountSortSelectItem {
+  padding-left: 10px;
+  padding-top: 8px;
+  padding-bottom: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.accountSortSelectItem:hover {
+  background-color: var(--pink);
+  color: var(--white);
+}
+
+.accountSortSelectItem::after {
+  width: 100%;
+  height: 2px;
+  position: absolute;
+  content: '';
+  top: 0;
+  left: 0;
+  background: var(--purple);
+}
+
+.preloaderWrapper {
+  height: calc(100vh - 207px);
+}
+
+.activeSelect {
+  transform: rotate(180deg);
+}

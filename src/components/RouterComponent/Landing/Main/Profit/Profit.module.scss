@@ -1,0 +1,229 @@
+.profitSection {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 52px 0 90px 50px;
+  color: var(--purple);
+}
+
+.profitTitle {
+  margin-bottom: 50px;
+  font-family: 'Comfortaa';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 45px;
+}
+
+.profitList {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 25px;
+}
+
+.profitItem {
+  display: flex;
+  flex-direction: column;
+  width: 257px;
+}
+
+.subtitleWrapper {
+  display: flex;
+  gap: 5px;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 30px;
+  line-height: 120%;
+}
+
+.profitText {
+  max-width: 216px;
+  margin-bottom: 14px;
+  align-self: flex-end;
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 130%;
+}
+
+.profitUnderline {
+  width: 215px;
+  height: 4px;
+  align-self: flex-end;
+  margin-right: 1px;
+  background: var(--main-gradient);
+}
+
+.profitStatistics,
+.profitSafety,
+.profitExchange {
+  margin-right: 51px;
+}
+
+.profitSafetyText,
+.profitExchangeText,
+.profitComfortText {
+  margin-bottom: 37px;
+}
+
+@media (max-width: 1024px) {
+  .profitSection {
+    padding: 40px 0 90px 22px;
+  }
+
+  .subtitle {
+    padding-top: 4px;
+    font-size: 24px;
+  }
+
+  .profitItem {
+    width: 241px;
+  }
+
+  .profitText {
+    max-width: 213px;
+    margin-bottom: 0px;
+    align-self: center;
+    padding-left: 27px;
+  }
+
+  .profitUnderline {
+    width: 180px;
+    height: 4px;
+    align-self: center;
+    margin: 0 0 0 20px;
+  }
+
+  .profitStatistics,
+  .profitSafety,
+  .profitExchange {
+    margin-right: 12px;
+  }
+
+  .profitStatisticsText,
+  .profitExchangeText {
+    margin-bottom: 14px;
+  }
+
+  .profitComfortText,
+  .profitSafetyText {
+    margin-bottom: 37px;
+  }
+}
+
+@media (max-width: 768px) {
+  .profitSection {
+    padding: 30px 0 80px 94px;
+  }
+
+  .profitTitle {
+    max-width: 380px;
+    margin-bottom: 40px;
+    font-size: 5.21vw;
+  }
+
+  .profitList {
+    row-gap: 40px;
+    column-gap: 54px;
+  }
+
+  .profitItem {
+    width: 257px;
+  }
+
+  .profitText {
+    max-width: 216px;
+    padding-left: 0px;
+    align-self: flex-end;
+  }
+
+  .profitUnderline {
+    width: 215px;
+    align-self: flex-end;
+    margin: 0 1px 0 0;
+  }
+
+  .profitComfortText {
+    margin-bottom: 14px;
+  }
+}
+
+@media (max-width: 550px) {
+  .profitSection {
+    padding: 30px 0 80px 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .profitTitle {
+    font-size: 7vw;
+  }
+
+  .profitList {
+    justify-content: center;
+    row-gap: 40px;
+    column-gap: 54px;
+  }
+}
+
+@media (max-width: 320px) {
+  .profitSection {
+    padding: 30px 0 60px 15px;
+    display: block;
+  }
+
+  .profitTitle {
+    max-width: 240px;
+    margin-bottom: 20px;
+    font-size: 19px;
+    line-height: 21px;
+  }
+
+  .profitList {
+    justify-content: start;
+    row-gap: 20px;
+    column-gap: 0;
+  }
+
+  .profitItem {
+    width: 261px;
+  }
+
+  .subtitleWrapper {
+    margin-bottom: 0px;
+  }
+  
+  .subtitle {
+    align-self:center;
+    padding-top: 1px;
+    font-size: 17px;
+  }
+  
+  .profitText {
+    max-width: 220px;
+    margin-bottom: 9px;
+    font-size: 14px;
+  }
+  
+  .profitUnderline {
+    width: 200px;
+    height: 2px;
+    margin-right: 20px;
+  }
+
+  .profitExchangeText {
+    margin-bottom: 9px;
+  }
+
+  .profitComfortText,
+  .profitSafetyText {
+    margin-bottom: 10px;
+  }
+}

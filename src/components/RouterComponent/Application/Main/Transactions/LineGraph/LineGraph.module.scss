@@ -1,0 +1,57 @@
+.lineGraphUnderlay {
+  padding-top: 43px;
+}
+
+.lineGraphWrapper {
+  padding: 15px 20px 0 20px;
+  width: 580px;
+  height: 312px;
+  background: var(--app-light-purple);
+  border-radius: 10px;
+}
+
+.lineGraphOptions {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.lineGraphDynamic {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.lineGraphDynamicText {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 27px;
+  color: var(--white);
+}
+
+.lineGraphDynamicYear {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 20px;
+  color: var(--inactive-input-border);
+}
+
+.lineGraphDynamicDateSelect {
+  padding-right: 16px;
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 20px;
+  color: var(--inactive-input-border);
+}
+
+.lineGraph {
+  width: 540px;
+  height: 237px;
+}

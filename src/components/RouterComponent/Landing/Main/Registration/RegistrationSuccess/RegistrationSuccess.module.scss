@@ -1,0 +1,69 @@
+.registrationSuccess {
+  width: 100%;
+  min-height: 400px;
+  padding-top: 43px;
+}
+
+.registrationSuccessWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 50px 0;
+  background-color: var(--white);
+  border-radius: 10px;
+}
+
+.registrationSuccessCheck {
+  margin-bottom: 24px;
+}
+
+.registrationSuccessTextWrapper {
+  max-width: 600px;
+}
+
+.registrationSuccessTitle {
+  margin-bottom: 21px;
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 30px;
+  line-height: 120%;
+  text-align: center;
+  color: var(--purple);
+}
+
+.registrationSuccessText {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 130%;
+  color: var(--purple);
+  text-align: center;
+}
+
+@media (max-width: 420px) {
+  .registrationSuccess {
+    padding-top: 29px;
+    padding-bottom: 15px;
+  }
+
+  .registrationSuccessWrapper {
+    padding-top: 66px;
+    padding-bottom: 85px;
+  }
+
+  .registrationSuccessTitle {
+    margin-bottom: 30px;
+    font-size: 17px;
+  }
+
+  .registrationSuccessText {
+    font-size: 14px;
+  }
+
+  .registrationSuccessCheck {
+    margin-bottom: 30px;
+  }
+}

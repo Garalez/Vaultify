@@ -1,0 +1,36 @@
+.mapWrapper {
+  padding-top: 8px;
+}
+
+.map {
+  border: 0;
+}
+
+@media (max-width: 1024px) {
+  .map {
+    width: 355px;
+  }
+}
+
+@media (max-width: 768px) {
+  .map {
+    width: 75.5vw;
+    height: 260px;
+  }
+
+  .mapWrapper {
+    padding-top: 0px;
+    margin-bottom: 36px;
+  }
+}
+
+@media (max-width: 320px) {
+  .map {
+    width: 290px;
+    height: 180px;
+  }
+
+  .mapWrapper {
+    margin-bottom: 0;
+  }
+}

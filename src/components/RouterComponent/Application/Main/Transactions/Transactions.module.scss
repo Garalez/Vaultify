@@ -1,0 +1,67 @@
+.transactions {
+  padding: 65px 0 10px 0;
+  margin: 0 auto;
+}
+
+.infoWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 74px;
+}
+
+.transactionsTitleWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 70px;
+}
+
+.transactionsTitle {
+  padding-left: 8px;
+  padding-top: 13px;
+  font-family: 'Comfortaa';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 26px;
+  line-height: 29px;
+  color: var(--white);
+}
+
+.transactionsBtn {
+  width: 178px;
+  height: 49px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  background: var(--main-gradient);
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 25px;
+  color: var(--white);
+  border: none;
+  border-radius: 8px;
+}
+
+.transactionsBtn:hover {
+  cursor: url('../../../../../assets/svg/customHoverCursor.svg'), pointer;
+  background: var(--button-hover-gradient);
+}
+
+.transactionsBtn:focus {
+  background: var(--button-focus-gradient);
+}
+
+.transactionsBtn:active {
+  background: var(--blue);
+}
+
+.transactionsGraphs {
+  display: flex;
+  flex-direction: column;
+  row-gap: 90px;
+}

@@ -1,0 +1,98 @@
+.burgerWrapper {
+  position: absolute;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  background-color: var(--white);
+  padding-top: 20px;
+}
+
+.logoWrapper {
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  margin-bottom: 36px;
+  padding-left: 94px;
+}
+
+.logo {
+  margin-right: 10px;
+}
+
+.logoText {
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 30px;
+}
+
+.list {
+  padding-left: 94px;
+  margin-bottom: 34px;
+  display: flex;
+  flex-direction: column;
+}
+
+.item {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 20px;
+}
+
+.item:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+.link {
+  cursor: pointer;
+}
+
+.logoName {
+  color: var(--purple);
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 30px;
+}
+
+.burgerBtnOpen,
+.burgerBtnClose {
+  border: none;
+  background-color: transparent;
+  border-radius: 20px;
+}
+
+.burgerBtnClose:hover,
+.burgerBtnClose:focus {
+  background: var(--light-grey);
+}
+
+.underline {
+  width: 100vw;
+  height: 2px;
+  background: var(--main-gradient);
+}
+
+.burgerBtnClose {
+  position: absolute;
+  top: 27px;
+  right: 94px;
+}
+
+@media (max-width: 320px) {
+  .logoWrapper {
+    padding-left: 15px;
+  }
+
+  .list {
+    padding-left: 15px;
+  }
+
+  .burgerBtnClose {
+    right: 25px;
+  }
+}

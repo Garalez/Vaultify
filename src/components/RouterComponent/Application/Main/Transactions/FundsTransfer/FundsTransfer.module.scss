@@ -1,0 +1,90 @@
+.transferTitle {
+  margin-bottom: 34px;
+  font-family: 'Comfortaa';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 26px;
+  line-height: 29px;
+  color: var(--white);
+}
+
+.transferList {
+  margin-bottom: 30px;
+  display: flex;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  justify-content: center;
+  column-gap: 20px;
+  row-gap: 40px;
+}
+
+.transferItem {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.transferItem:last-child {
+  justify-content: flex-end;
+}
+
+.transferLabel {
+  padding-left: 20px;
+  color: var(--inactive-input-border);
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 20px;
+}
+
+.transferInput {
+  width: 380px;
+  height: 70px;
+  padding: 0 18px;
+  background: var(--white);
+  font-size: 27px;
+  border: 2px solid var(--inactive-input-border);
+  border-radius: 10px;
+  caret-color: var(--purple);
+}
+
+.transferInput:focus {
+  outline: none;
+  border: 2px solid var(--pink);
+}
+
+.transferFormSubmit {
+  width: 380px;
+  height: 70px;
+  background: var(--main-gradient);
+  border: none;
+  border-radius: 10px;
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 25px;
+  color: var(--white);
+}
+
+.transferFormSubmit:hover {
+  cursor: url('../../../../../../assets/svg/customHoverCursor.svg'), pointer;
+  background: var(--button-hover-gradient);
+}
+
+.transferFormSubmit:focus {
+  background: var(--button-focus-gradient);
+}
+
+.transferFormSubmit:active {
+  background: var(--blue);
+}
+
+.authInputError {
+  position: absolute;
+  bottom: -30px;
+  left: 15px;
+  color: red;
+}

@@ -1,0 +1,31 @@
+.headerWrapper {
+  background-color: var(--app-light-purple);
+  display: flex;
+  justify-content: center;
+}
+
+.contentWrapper {
+  width: 100%;
+  max-width: 1440px;
+  padding: 18px 40px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.logoLink {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  margin-right: 8px;
+}
+
+.logoName {
+  color: var(--white);
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 30px;
+}
