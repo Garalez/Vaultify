@@ -5,8 +5,9 @@ import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import { ReactComponent as SelectArrowSvg } from '../../../../../../assets/svg/blackCustomSelectArrow.svg';
 import { useOutsideClick } from '../../../../../../hooks/useOutsideClick';
-import { currencyRequestAsync } from '../../../../../../store/currencyRequest/currencyRequestActions';
-import { currencyBuyRequestAsync } from '../../../../../../store/buyCurrency/buyCurrencyActions';
+import { currencyExchangeRequestAsync } from '../../../../../../store/currencyExchange/currencyExchangeActions';
+import { CurrencyExchangeCustomSelector } from './CurrencyExchangeCustomSelector/CurrencyExchangeCustomSelector';
+import { AnimatePresence } from 'framer-motion';
 
 export const CurrencyExchangeForm = ({ currencyTypes }) => {
   const dispatch = useDispatch();
@@ -31,71 +32,66 @@ export const CurrencyExchangeForm = ({ currencyTypes }) => {
   const formSubmit = (e) => {
     e.preventDefault();
 
-    dispatch(currencyBuyRequestAsync(selectFromValue, selectToValue, transferSum));
-    dispatch(currencyRequestAsync());
+    dispatch(currencyExchangeRequestAsync(selectFromValue, selectToValue, Number(transferSum)));
     setTransferSum('');
+  };
+
+  const handleSelectFrom = (e) => {
+    setSelectFromValue(e.target.outerText);
+    setOpenSelectFrom(false);
+  };
+
+  const handleSelectTo = (e) => {
+    setSelectToValue(e.target.outerText);
+    setOpenSelectTo(false);
   };
 
   return (
     <section className={style.currencyExchange}>
       <h3 className={style.currencyExchangeTitle}>Обмен валюты</h3>
-      <form
-        className={style.currencyExchangeForm}
-        action=''
-        onSubmit={(e) => formSubmit(e)}
-      >
+      <form className={style.currencyExchangeForm} action='' onSubmit={(e) => formSubmit(e)}>
         <ul className={style.currencyExchangeList}>
           <li
             ref={selectRefFromRef}
             onClick={() => setOpenSelectFrom(!openSelectFrom)}
-            className={style.currencyExchangeItem}
-          >
+            className={style.currencyExchangeItem}>
             <p className={style.currencyExchangeLabel}>Откуда</p>
-            <div className={style.currencyExchangeCustomSelect}>
+            <div
+              className={`${style.currencyExchangeCustomSelect} ${
+                openSelectFrom ? style.customSelectActive : ''
+              }`}>
               {selectFromValue}
-              <SelectArrowSvg
-                className={`${openSelectFrom ? style.selectArrow : ''}`}
-              />
+              <SelectArrowSvg className={`${openSelectFrom ? style.selectArrow : ''}`} />
             </div>
-            {openSelectFrom && (
-              <ul className={style.currencyExchangeSelectList}>
-                {currencyTypes.map((currency, index) => (
-                  <li
-                    key={index}
-                    className={style.currencyExchangeSelectItem}
-                    onClick={(e) => setSelectFromValue(e.target.outerText)}
-                  >
-                    {currency}
-                  </li>
-                ))}
-              </ul>
-            )}
+            <AnimatePresence>
+              {openSelectFrom && (
+                <CurrencyExchangeCustomSelector
+                  currencyTypes={currencyTypes}
+                  onClick={handleSelectFrom}
+                />
+              )}
+            </AnimatePresence>
           </li>
           <li
             ref={selectRefToRef}
             className={style.currencyExchangeItem}
-            onClick={() => setOpenSelectTo(!openSelectTo)}
-          >
+            onClick={() => setOpenSelectTo(!openSelectTo)}>
             <p className={style.currencyExchangeLabel}>Куда</p>
-            <div className={style.currencyExchangeCustomSelect}>
+            <div
+              className={`${style.currencyExchangeCustomSelect} ${
+                openSelectTo ? style.customSelectActive : ''
+              }`}>
               {selectToValue}
-              <SelectArrowSvg
-                className={`${openSelectTo ? style.selectArrow : ''}`}
-              />
+              <SelectArrowSvg className={`${openSelectTo ? style.selectArrow : ''}`} />
             </div>
-            {openSelectTo && (
-              <ul className={style.currencyExchangeSelectList}>
-                {currencyTypes.map((currency, index) => (
-                  <li
-                    key={index}
-                    className={style.currencyExchangeSelectItem}
-                    onClick={(e) => setSelectToValue(e.target.outerText)}
-                  >
-                    {currency}
-                  </li>
-                ))}
-              </ul>
-            )}
+            <AnimatePresence>
+              {openSelectTo && (
+                <CurrencyExchangeCustomSelector
+                  currencyTypes={currencyTypes}
+                  onClick={handleSelectTo}
+                />
+              )}
+            </AnimatePresence>
           </li>
           <li className={style.currencyExchangeItem}>
             <label className={style.currencyExchangeLabel} htmlFor='sum'>

@@ -9,6 +9,7 @@ import { createNewUserAccount } from '../../../../../utils/createNewUserAccount'
 import { Preloader } from '../../../../../UI/Preloader/Preloader';
 import MyAccounts from './MyAccounts';
 import CustomSelect from './CustomSelect';
+import { AnimatePresence } from 'framer-motion';
 
 export const AccountInfo = () => {
   const dispatch = useDispatch();
@@ -51,8 +52,7 @@ export const AccountInfo = () => {
   };
 
   const createNewAccount = () => {
-    createNewUserAccount();
-    dispatch(userAccountsRequestAsync());
+    dispatch(createNewUserAccount());
   };
 
   const selectData = ['Номеру счёта', 'Балансу', 'Дате', 'Последней транзакции'];
@@ -81,23 +81,20 @@ export const AccountInfo = () => {
               className={style.accountSortTextWrapper}
               onClick={() => setToggleSelect(!toggleSelect)}>
               <p className={style.accountSortText}>Сортировка:</p>
-              <div className={style.accountSort}>
+              <button className={style.accountSort}>
                 {`По ${selectValue.toLowerCase()}`}{' '}
                 <ArrowSvg className={toggleSelect ? style.activeSelect : ''} />
-              </div>
+              </button>
             </div>
-            {toggleSelect && (
-              <ul className={style.accountSortSelectList}>
-                {selectData.map((item, index) => (
-                  <CustomSelect
-                    key={index}
-                    data={item}
-                    userAccountsSort={userAccountsSort}
-                    selectValue={selectValue}
-                  />
-                ))}
-              </ul>
-            )}
+            <AnimatePresence>
+              {toggleSelect && (
+                <CustomSelect
+                  userAccountsSort={userAccountsSort}
+                  selectData={selectData}
+                  selectValue={selectValue}
+                />
+              )}
+            </AnimatePresence>
           </div>
         </div>
         <ul className={style.accountList}>

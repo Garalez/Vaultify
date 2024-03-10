@@ -51,6 +51,7 @@
   margin-bottom: 14px;
   display: flex;
   justify-content: space-between;
+  z-index: 5;
 }
 
 .accountSubtitle {
@@ -82,6 +83,7 @@
   background: transparent;
   border: none;
   color: var(--white);
+  z-index: 2;
 }
 
 .accountList {
@@ -144,6 +146,7 @@
 
 .accountSortWrapper {
   position: relative;
+  z-index: 1;
 }
 
 .accountSortTextWrapper {
@@ -183,23 +186,23 @@
   background-repeat: no-repeat;
 }
 
-.accountSortSelectList {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  position: absolute;
-  left: 0;
-  top: 20px;
-  background-color: var(--white);
-  border-radius: 6px;
-  font-family: 'Nunito';
-  font-style: normal;
-  font-weight: 700;
-  font-size: 15px;
-  line-height: 100%;
-  color: var(--purple);
-  cursor: pointer;
-}
+// .accountSortSelectList {
+//   width: 100%;
+//   display: flex;
+//   flex-direction: column;
+//   position: absolute;
+//   left: 0;
+//   top: 20px;
+//   background-color: var(--white);
+//   border-radius: 6px;
+//   font-family: 'Nunito';
+//   font-style: normal;
+//   font-weight: 700;
+//   font-size: 15px;
+//   line-height: 100%;
+//   color: var(--purple);
+//   cursor: pointer;
+// }
 
 .closed {
   display: none;
@@ -207,31 +210,6 @@
 
 .opened {
   display: flex;
-}
-
-.accountSortSelectItem {
-  padding-left: 10px;
-  padding-top: 8px;
-  padding-bottom: 5px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-}
-
-.accountSortSelectItem:hover {
-  background-color: var(--pink);
-  color: var(--white);
-}
-
-.accountSortSelectItem::after {
-  width: 100%;
-  height: 2px;
-  position: absolute;
-  content: '';
-  top: 0;
-  left: 0;
-  background: var(--purple);
 }
 
 .preloaderWrapper {

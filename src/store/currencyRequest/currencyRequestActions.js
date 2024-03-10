@@ -26,6 +26,7 @@ export const currencyRequestAsync = () => (dispatch) => {
   if (!token || token === 'undefined') return;
 
   dispatch(currencyRequest());
+
   fetch(`${URL_API}/currencies`, {
     method: 'GET',
     headers: {

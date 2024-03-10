@@ -6,7 +6,7 @@ import { userAccountInfoReducer } from './accountInfoRequest/accountInfoRequestR
 import { accountTransferFundsReducer } from './accountTransferFunds/accountTransferFundsReducer';
 import { currencyTypeRequestReducer } from './currencyTypeRequest/currencyTypeRequestReducer';
 import { currencyRequestReducer } from './currencyRequest/currencyRequestReducer';
-import { currencyBuyReducer } from './buyCurrency/buyCurrencyReducer';
+import { currencyExchangeReducer } from './currencyExchange/currencyExchangeReducer';
 import { createUserReducer } from './accountCreationRequest/accountCreationRequestReducer';
 
 export const store = configureStore({
@@ -18,7 +18,7 @@ export const store = configureStore({
     accountTransferFunds: accountTransferFundsReducer,
     currencyTypes: currencyTypeRequestReducer,
     userCurrencies: currencyRequestReducer,
-    currencyBuy: currencyBuyReducer,
+    currencyExchange: currencyExchangeReducer,
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware({
     immutableCheck: false,

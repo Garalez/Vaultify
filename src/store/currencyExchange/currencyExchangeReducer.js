@@ -1,29 +1,27 @@
 import {
-  CURRENCY_BUY_REQUEST,
-  CURRENCY_BUY_REQUEST_SUCCESS,
-  CURRENCY_BUY_REQUEST_ERROR,
-} from './buyCurrencyActions.js';
+  CURRENCY_EXCHANGE_REQUEST,
+  CURRENCY_EXCHANGE_REQUEST_SUCCESS,
+  CURRENCY_EXCHANGE_REQUEST_ERROR,
+} from './currencyExchangeActions.js';
 
 const initialState = {
   status: '',
-  data: {},
   error: '',
 };
 
-export const currencyBuyReducer = (state = initialState, action) => {
+export const currencyExchangeReducer = (state = initialState, action) => {
   switch (action.type) {
-    case CURRENCY_BUY_REQUEST:
+    case CURRENCY_EXCHANGE_REQUEST:
       return {
         status: 'loading',
         error: '',
       };
-    case CURRENCY_BUY_REQUEST_SUCCESS:
+    case CURRENCY_EXCHANGE_REQUEST_SUCCESS:
       return {
         status: 'loaded',
-        data: action.data,
         error: '',
       };
-    case CURRENCY_BUY_REQUEST_ERROR:
+    case CURRENCY_EXCHANGE_REQUEST_ERROR:
       return {
         status: 'rejected',
         error: action.error,
