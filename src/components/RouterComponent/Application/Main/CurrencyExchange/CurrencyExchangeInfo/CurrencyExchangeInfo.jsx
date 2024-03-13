@@ -3,8 +3,11 @@ import style from './CurrencyExchangeInfo.module.scss';
 import { useEffect, useMemo, useState } from 'react';
 import { ReactComponent as UpArrowSvg } from '../../../../../../assets/svg/upGreenArrow.svg';
 import { ReactComponent as DownArrowSvg } from '../../../../../../assets/svg/downRedArrow.svg';
+import { useLanguage } from '../../../../../../hooks/useLanguage';
+import Langs from '../../../../../../locales/translations.json';
 
 export const CurrencyExchangeInfo = () => {
+  const { language } = useLanguage();
   const [currencyFeed, setCurrencyFeed] = useState([]);
   const ws = useMemo(() => new WebSocket('wss://c-money.glitch.me/currency-feed'), []);
 
@@ -38,7 +41,7 @@ export const CurrencyExchangeInfo = () => {
 
   return (
     <section className={style.rate}>
-      <h3 className={style.rateTitle}>Изменение курса в режиме реального времени</h3>
+      <h3 className={style.rateTitle}>{Langs[language].app.exchange[1]}</h3>
       <ul className={style.rateList}>
         {currencyFeed.map((item, index) => (
           <li key={index} className={style.rateItem}>

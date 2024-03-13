@@ -9,36 +9,39 @@ import JuliaReviewer from '../../../../../assets/img/JuliaReviewer.png';
 import SvetlanaReviewer from '../../../../../assets/img/SvetlanaReviewer.png';
 import SergeiReviewer from '../../../../../assets/img/SergeiReviewer.png';
 import useWindowDimensions from '../../../../../hooks/screenViewPort';
+import { useLanguage } from '../../../../../hooks/useLanguage';
+import Langs from '../../../../../locales/translations.json';
 import { UserReview } from './UserReview/UserReview';
 import 'swiper/scss';
 
 export const Reviews = () => {
   const swiperRef = useRef();
+  const { language } = useLanguage();
   const { width } = useWindowDimensions();
   const reviewsList = [
     {
-      name: 'Юлия С',
+      name: Langs[language].main.reviews[1],
       photo: JuliaReviewer,
       blockquote:
-        '«Очень удобная платформа для открытия мультивалютных счётов»',
+        Langs[language].main.reviews[2],
     },
     {
-      name: 'Светлана Н',
+      name: Langs[language].main.reviews[3],
       photo: SvetlanaReviewer,
       blockquote:
-        '«Пользуюсь платформой уже больше года, нравится, что можно быстро менять валюту по выгодному курсу»',
+        Langs[language].main.reviews[4],
     },
     {
-      name: 'Сергей А',
+      name: Langs[language].main.reviews[5],
       photo: SergeiReviewer,
       blockquote:
-        '«Открыл счёт в биткоинах, могу быстро следить за курсом и делать обмен»',
+        Langs[language].main.reviews[6],
     },
   ];
 
   return (
     <section className={style.reviewsSection} id='reviews'>
-      <h2 className={style.reviewsTitle}>Отзывы наших клиентов</h2>
+      <h2 className={style.reviewsTitle}>{Langs[language].main.reviews[0]}</h2>
       <div className={style.swiperWrapper}>
         <Swiper
           modules={[Navigation]}

@@ -8,11 +8,13 @@ import RegistrationSuccess from './RegistrationSuccess';
 import RegistrationTabs from './RegistrationTabs';
 import { useDispatch, useSelector } from 'react-redux';
 import { createUserRequestAsync } from '../../../../../store/accountCreationRequest/accountCreationRequestActions';
+import { useLanguage } from '../../../../../hooks/useLanguage';
+import Langs from '../../../../../locales/translations.json';
 
 export const Registration = () => {
   const dispatch = useDispatch();
   const userCreationStatus = useSelector((state) => state.createUser);
-  console.log('userCreationStatus: ', userCreationStatus);
+  const { language } = useLanguage();
 
   const [activeTab, setActiveTab] = useState({
     firstTab: true,
@@ -89,12 +91,12 @@ export const Registration = () => {
   return (
     <section className={style.registrationSection} id='registration'>
       <div className={style.registrationWrapper}>
-        <h2 className={style.registrationTitle}>Как зарегистрироваться на платформе</h2>
+        <h2 className={style.registrationTitle}>{Langs[language].main.registration[0]}</h2>
         {userCreationStatus.status === 'success' || userCreationStatus.status === 'loading' ? (
           <RegistrationSuccess status={userCreationStatus.status} />
         ) : (
           <>
-            <p className={style.registrationText}>Пошагово заполните все поля формы</p>
+            <p className={style.registrationText}>{Langs[language].main.registration[1]}</p>
             <div className={style.registrationFormUnderlay}>
               <div className={style.registrationFormWrapper}>
                 <RegistrationTabs

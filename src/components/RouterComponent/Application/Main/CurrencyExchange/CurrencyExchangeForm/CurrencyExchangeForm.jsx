@@ -8,8 +8,11 @@ import { useOutsideClick } from '../../../../../../hooks/useOutsideClick';
 import { currencyExchangeRequestAsync } from '../../../../../../store/currencyExchange/currencyExchangeActions';
 import { CurrencyExchangeCustomSelector } from './CurrencyExchangeCustomSelector/CurrencyExchangeCustomSelector';
 import { AnimatePresence } from 'framer-motion';
+import { useLanguage } from '../../../../../../hooks/useLanguage';
+import Langs from '../../../../../../locales/translations.json';
 
 export const CurrencyExchangeForm = ({ currencyTypes }) => {
+  const { language } = useLanguage();
   const dispatch = useDispatch();
 
   const [openSelectFrom, setOpenSelectFrom] = useState(false);
@@ -48,14 +51,14 @@ export const CurrencyExchangeForm = ({ currencyTypes }) => {
 
   return (
     <section className={style.currencyExchange}>
-      <h3 className={style.currencyExchangeTitle}>Обмен валюты</h3>
+      <h3 className={style.currencyExchangeTitle}>{Langs[language].app.exchange[2]}</h3>
       <form className={style.currencyExchangeForm} action='' onSubmit={(e) => formSubmit(e)}>
         <ul className={style.currencyExchangeList}>
           <li
             ref={selectRefFromRef}
             onClick={() => setOpenSelectFrom(!openSelectFrom)}
             className={style.currencyExchangeItem}>
-            <p className={style.currencyExchangeLabel}>Откуда</p>
+            <p className={style.currencyExchangeLabel}>{Langs[language].app.exchange[3]}</p>
             <div
               className={`${style.currencyExchangeCustomSelect} ${
                 openSelectFrom ? style.customSelectActive : ''
@@ -76,7 +79,7 @@ export const CurrencyExchangeForm = ({ currencyTypes }) => {
             ref={selectRefToRef}
             className={style.currencyExchangeItem}
             onClick={() => setOpenSelectTo(!openSelectTo)}>
-            <p className={style.currencyExchangeLabel}>Куда</p>
+            <p className={style.currencyExchangeLabel}>{Langs[language].app.exchange[4]}</p>
             <div
               className={`${style.currencyExchangeCustomSelect} ${
                 openSelectTo ? style.customSelectActive : ''
@@ -95,7 +98,7 @@ export const CurrencyExchangeForm = ({ currencyTypes }) => {
           </li>
           <li className={style.currencyExchangeItem}>
             <label className={style.currencyExchangeLabel} htmlFor='sum'>
-              Сумма
+              {Langs[language].app.exchange[5]}
             </label>
             <input
               className={style.currencyExchangeInput}
@@ -107,7 +110,7 @@ export const CurrencyExchangeForm = ({ currencyTypes }) => {
         </ul>
         <div className={style.currencyExchangeSubmitWrapper}>
           <button className={style.currencyExchangeSubmit} type='submit'>
-            Обменять
+            {Langs[language].app.exchange[6]}
           </button>
         </div>
       </form>

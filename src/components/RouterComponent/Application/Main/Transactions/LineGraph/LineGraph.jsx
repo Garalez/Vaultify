@@ -11,9 +11,11 @@ import {
 import { Line } from 'react-chartjs-2';
 import { APP_CURRENCY_SIGN } from '../../../../../../utils/appCurrencySign';
 import { monthlyIncome } from '../../../../../../utils/formatDate';
+import { useLanguage } from '../../../../../../hooks/useLanguage';
+import Langs from '../../../../../../locales/translations.json';
 
 export const LineGraph = ({ accountInfo }) => {
-  console.log('accountInfo: ', accountInfo);
+  const { language } = useLanguage();
   ChartJS.register(
     CategoryScale,
     LinearScale,
@@ -138,10 +140,10 @@ export const LineGraph = ({ accountInfo }) => {
       <div className={style.lineGraphWrapper}>
         <div className={style.lineGraphOptions}>
           <div className={style.lineGraphDynamic}>
-            <p className={style.lineGraphDynamicText}>Динамика</p>
-            <p className={style.lineGraphDynamicYear}>2023 - 2024</p>
+            <p className={style.lineGraphDynamicText}>{Langs[language].app.transactions[15]}</p>
+            <p className={style.lineGraphDynamicYear}>{Langs[language].app.transactions[16]}</p>
           </div>
-          <p className={style.lineGraphDynamicDateSelect}>Год</p>
+          <p className={style.lineGraphDynamicDateSelect}>{Langs[language].app.transactions[17]}</p>
         </div>
         <div className={style.lineGraph}>
           <Line options={options} data={data} />

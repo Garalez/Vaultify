@@ -7,17 +7,16 @@ import { Doughnut } from 'react-chartjs-2';
 import { ReactComponent as IncomeSvg } from '../../../../../../assets/svg/doughnutCircleIncome.svg';
 import { ReactComponent as ExpensesSvg } from '../../../../../../assets/svg/doughnutCircleExpenses.svg';
 import { APP_CURRENCY_SIGN } from '../../../../../../utils/appCurrencySign';
+import { useLanguage } from '../../../../../../hooks/useLanguage';
+import Langs from '../../../../../../locales/translations.json';
 
 export const DoughnutGraph = ({ accountInfo }) => {
-  console.log('accountInfo: ', accountInfo);
+  const { language } = useLanguage();
   const [graphData, setGraphData] = useState([]);
   const [activeButton, setActiveButton] = useState({});
 
   useEffect(() => {
-    setGraphData([
-      accountInfo.week.expenses,
-      accountInfo.week.income,
-    ]);
+    setGraphData([accountInfo.week.expenses, accountInfo.week.income]);
 
     setActiveButton({
       week: true,
@@ -37,9 +36,11 @@ export const DoughnutGraph = ({ accountInfo }) => {
       tooltip: {
         callbacks: {
           label: (context) =>
-            ` ${context.raw === graphData[0] ? 'Расходы' : 'Доходы'}: ${
-              context.raw
-            } ${APP_CURRENCY_SIGN}`,
+            ` ${
+              context.raw === graphData[0] ?
+              Langs[language].app.transactions[7] :
+              Langs[language].app.transactions[8]
+            }: ${context.raw} ${APP_CURRENCY_SIGN}`,
         },
       },
     },
@@ -57,7 +58,7 @@ export const DoughnutGraph = ({ accountInfo }) => {
 
   return (
     <section className={style.graphInfoWrapper}>
-      <h2 className={style.graphTitle}>Статистика</h2>
+      <h2 className={style.graphTitle}>{Langs[language].app.transactions[6]}</h2>
       <div className={style.graphDataWrapper}>
         <ul className={style.graphDateList}>
           <li className={style.graphDateItem}>
@@ -66,18 +67,14 @@ export const DoughnutGraph = ({ accountInfo }) => {
                 activeButton.week ? style.graphButtonActive : undefined
               }`}
               onClick={() => {
-                setGraphData([
-                  accountInfo.week.expenses,
-                  accountInfo.week.income,
-                ]);
+                setGraphData([accountInfo.week.expenses, accountInfo.week.income]);
                 setActiveButton({
                   week: true,
                   month: false,
                   year: false,
                 });
-              }}
-            >
-              Неделя
+              }}>
+              {Langs[language].app.transactions[9]}
             </button>
           </li>
           <li className={style.graphDateItem}>
@@ -86,18 +83,14 @@ export const DoughnutGraph = ({ accountInfo }) => {
                 activeButton.month ? style.graphButtonActive : undefined
               }`}
               onClick={() => {
-                setGraphData([
-                  accountInfo.month.expenses,
-                  accountInfo.month.income,
-                ]);
+                setGraphData([accountInfo.month.expenses, accountInfo.month.income]);
                 setActiveButton({
                   week: false,
                   month: true,
                   year: false,
                 });
-              }}
-            >
-              Месяц
+              }}>
+              {Langs[language].app.transactions[10]}
             </button>
           </li>
           <li className={style.graphDateItem}>
@@ -106,18 +99,14 @@ export const DoughnutGraph = ({ accountInfo }) => {
                 activeButton.year ? style.graphButtonActive : undefined
               }`}
               onClick={() => {
-                setGraphData([
-                  accountInfo.year.expenses,
-                  accountInfo.year.income,
-                ]);
+                setGraphData([accountInfo.year.expenses, accountInfo.year.income]);
                 setActiveButton({
                   week: false,
                   month: false,
                   year: true,
                 });
-              }}
-            >
-              Год
+              }}>
+              {Langs[language].app.transactions[11]}
             </button>
           </li>
         </ul>
@@ -126,18 +115,19 @@ export const DoughnutGraph = ({ accountInfo }) => {
         </div>
         <ul className={style.graphBalanceList}>
           <li className={style.graphBalanceItem}>
-            <p className={style.graphBalanceItemText}>Баланс</p>
+            <p className={style.graphBalanceItemText}>{Langs[language].app.transactions[12]}</p>
             <p className={style.graphBalanceItemText}>
-              <IncomeSvg /> Доходы
+              <IncomeSvg /> {Langs[language].app.transactions[13]}
             </p>
             <p className={style.graphBalanceItemText}>
-              <ExpensesSvg /> Расходы
+              <ExpensesSvg /> {Langs[language].app.transactions[14]}
             </p>
           </li>
           <li className={style.graphBalanceItem}>
             <p
-              className={style.graphBalanceItemSum}
-            >{`${accountInfo.balance} ${APP_CURRENCY_SIGN}`}</p>
+              className={
+                style.graphBalanceItemSum
+              }>{`${accountInfo.balance} ${APP_CURRENCY_SIGN}`}</p>
             <p className={style.graphBalanceItemSum}>{`${graphData[1]} ${APP_CURRENCY_SIGN}`}</p>
             <p className={style.graphBalanceItemSum}>{`${graphData[0]} ${APP_CURRENCY_SIGN}`}</p>
           </li>

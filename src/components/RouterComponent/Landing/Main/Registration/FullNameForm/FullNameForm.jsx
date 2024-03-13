@@ -1,12 +1,16 @@
 import style from '../Registration.module.scss';
 import PropTypes from 'prop-types';
 import { useState } from 'react';
+import { useLanguage } from '../../../../../../hooks/useLanguage';
+import Langs from '../../../../../../locales/translations.json';
 
 export const FullNameForm = ({
   fullNameFormSubmit,
   formValues,
   handleChange,
 }) => {
+  const { language } = useLanguage();
+
   const [isInputValid, setIsInputValid] = useState({
     name: true,
     surname: true,
@@ -42,7 +46,7 @@ export const FullNameForm = ({
       <ul className={style.registrationInputList}>
         <li className={style.registrationInputItem}>
           <label className={style.registrationLabel} htmlFor='name'>
-            Имя
+            {Langs[language].main.registration[2]}
           </label>
           <input
             className={style.registrationInput}
@@ -55,13 +59,13 @@ export const FullNameForm = ({
           />
           {!isInputValid.name && (
             <p className={style.inputsError}>
-              Неверное имя пользователя
+              {Langs[language].main.registration[3]}
             </p>
           )}
         </li>
         <li className={style.registrationInputItem}>
           <label className={style.registrationLabel} htmlFor='surname'>
-            Фамилия
+            {Langs[language].main.registration[4]}
           </label>
           <input
             className={style.registrationInput}
@@ -74,13 +78,13 @@ export const FullNameForm = ({
           />
           {!isInputValid.surname && (
             <p className={style.inputsError}>
-              Неверная фамилия пользователя
+              {Langs[language].main.registration[5]}
             </p>
           )}
         </li>
         <li className={style.registrationInputItem}>
           <label className={style.registrationLabel} htmlFor='patronymic'>
-            Отчество
+            {Langs[language].main.registration[6]}
           </label>
           <input
             className={style.registrationInput}
@@ -93,7 +97,7 @@ export const FullNameForm = ({
           />
           {!isInputValid.patronymic && (
             <p className={style.inputsError}>
-              Неверное отчество пользователя
+              {Langs[language].main.registration[7]}
             </p>
           )}
         </li>

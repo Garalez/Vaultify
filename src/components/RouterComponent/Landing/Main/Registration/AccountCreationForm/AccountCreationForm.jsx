@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
 import { createUserRequestError } from '../../../../../../store/accountCreationRequest/accountCreationRequestActions';
 import { useDispatch } from 'react-redux';
+import { useLanguage } from '../../../../../../hooks/useLanguage';
+import Langs from '../../../../../../locales/translations.json';
 
 export const AccountCreationForm = ({
   accountCreationFormSubmit,
@@ -12,6 +14,7 @@ export const AccountCreationForm = ({
   userCreationStatus,
 }) => {
   const dispatch = useDispatch();
+  const { language } = useLanguage();
   const [loginError, setLoginError] = useState('');
   const [isInputValid, setIsInputValid] = useState({
     login: true,
@@ -21,7 +24,7 @@ export const AccountCreationForm = ({
 
   useEffect(() => {
     if (userCreationStatus === 'User exists') {
-      setLoginError('Логин существует');
+      setLoginError(Langs[language].main.registration[14]);
       setIsInputValid({ ...isInputValid, login: false });
     }
   }, []);
@@ -31,10 +34,10 @@ export const AccountCreationForm = ({
 
     setIsInputValid({ ...isInputValid, [name]: !!formValues[name] });
     if (name === 'login') {
-      setLoginError('Неправильный логин');
+      setLoginError(Langs[language].main.registration[15]);
       if (formValues.login.length < 6) {
         setIsInputValid({ ...isInputValid, login: false });
-        setLoginError('Логин должен быть не менее 6 символов');
+        setLoginError(Langs[language].main.registration[16]);
       }
       if (userCreationStatus !== '') {
         dispatch(createUserRequestError(''));
@@ -65,7 +68,7 @@ export const AccountCreationForm = ({
       <ul className={style.registrationInputList}>
         <li className={style.registrationInputItem}>
           <label className={style.registrationLabel} htmlFor='login'>
-            Придумайте логин
+            {Langs[language].main.registration[13]}
           </label>
           <input
             className={style.registrationInput}
@@ -82,7 +85,7 @@ export const AccountCreationForm = ({
         </li>
         <li className={style.registrationInputItem}>
           <label className={style.registrationLabel} htmlFor='password'>
-            Придумайте пароль
+            {Langs[language].main.registration[17]}
           </label>
           <input
             className={style.registrationInput}
@@ -94,12 +97,12 @@ export const AccountCreationForm = ({
             onChange={(e) => handleChange(e)}
           />
           {!isInputValid.password && (
-            <p className={style.inputsError}>Неправильный пароль</p>
+            <p className={style.inputsError}>{Langs[language].main.registration[18]}</p>
           )}
         </li>
         <li className={style.registrationInputItem}>
           <label className={style.registrationLabel} htmlFor='confirmPassword'>
-            Повторите пароль
+            {Langs[language].main.registration[19]}
           </label>
           <input
             className={style.registrationInput}
@@ -111,12 +114,12 @@ export const AccountCreationForm = ({
             onChange={(e) => handleChange(e)}
           />
           {!isInputValid.confirmPassword && (
-            <p className={style.inputsError}>Пароли не совпадают</p>
+            <p className={style.inputsError}>{Langs[language].main.registration[20]}</p>
           )}
         </li>
       </ul>
       <div className={style.registrationAgreementWrapper}>
-        <button className={style.nextBtn}>Зарегистрироваться</button>
+        <button className={style.nextBtn}>{Langs[language].main.registration[21]}</button>
         <div className={style.registrationPolicyWrapper}>
           <div className={style.customCheckboxWrapper}>
             <input

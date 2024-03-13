@@ -6,9 +6,12 @@ import { useDispatch, useSelector } from 'react-redux';
 // import { useSearchParams } from 'react-router-dom';
 import { accountTransferFundsRequestAsync } from '../../../../../../store/accountTransferFunds/accountTransferFundsActions';
 import { userAccountsRequestAsync } from '../../../../../../store/accountsRequest/accountsRequestActions';
+import { useLanguage } from '../../../../../../hooks/useLanguage';
+import Langs from '../../../../../../locales/translations.json';
 
 export const FundsTransfer = ({ accountInfo }) => {
   const dispatch = useDispatch();
+  const { language } = useLanguage();
   // const [searchParams] = useSearchParams();
   // const accountId = searchParams.get('id');
   const transferResponse = useSelector((state) => state.accountTransferFunds);
@@ -78,7 +81,7 @@ export const FundsTransfer = ({ accountInfo }) => {
 
   return (
     <section className={style.transfer}>
-      <h2 className={style.transferTitle}>Перевод</h2>
+      <h2 className={style.transferTitle}>{Langs[language].app.transactions[18]}</h2>
       <form
         className={style.transferForm}
         action=''
@@ -87,7 +90,7 @@ export const FundsTransfer = ({ accountInfo }) => {
         <ul className={style.transferList}>
           <li className={style.transferItem}>
             <label className={style.transferLabel} htmlFor='account'>
-              Счет
+              {Langs[language].app.transactions[19]}
             </label>
             <input
               className={style.transferInput}
@@ -99,14 +102,14 @@ export const FundsTransfer = ({ accountInfo }) => {
             />
             {displayErrorMassage.account ||
             (transferResponse.error === 'Invalid account to') ? (
-              <p className={style.authInputError}>Неверный номер счёта</p>
+              <p className={style.authInputError}>{Langs[language].app.transactions[20]}</p>
             ) : (
               <></>
             )}
           </li>
           <li className={style.transferItem}>
             <label className={style.transferLabel} htmlFor='sum'>
-              Сумма
+              {Langs[language].app.transactions[21]}
             </label>
             <input
               className={style.transferInput}
@@ -117,12 +120,12 @@ export const FundsTransfer = ({ accountInfo }) => {
               value={transactionData.sum}
             />
             {displayErrorMassage.sum && (
-              <p className={style.authInputError}>Неверная сумма перевода</p>
+              <p className={style.authInputError}>{Langs[language].app.transactions[22]}</p>
             )}
           </li>
           <li className={style.transferItem}>
             <button className={style.transferFormSubmit} type='submit'>
-              Перевести
+              {Langs[language].app.transactions[23]}
             </button>
           </li>
         </ul>

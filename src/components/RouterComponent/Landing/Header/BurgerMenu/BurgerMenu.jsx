@@ -4,9 +4,12 @@ import { useState } from 'react';
 import { ReactComponent as LogoSvg } from '../../../../../assets/svg/violetLogo.svg';
 import { ReactComponent as CloseSvg } from '../../../../../assets/svg/burgerMenuClose.svg';
 import { ReactComponent as BurgerLogoSvg } from '../../../../../assets/svg/burgerMenu.svg';
+import { useLanguage } from '../../../../../hooks/useLanguage';
+import Langs from '../../../../../locales/translations.json';
 
 export const BurgerMenu = () => {
   const [isBurgerActive, setIsBurgerActive] = useState(false);
+  const { language } = useLanguage();
 
   return (
     <>
@@ -29,13 +32,13 @@ export const BurgerMenu = () => {
           <nav className={style.navigate}>
             <ul className={style.list}>
               <li className={style.item}>
-                <a href='#profit'>Почему с нами выгодно?</a>
+                <a href='#profit'>{Langs[language].header.menu[0]}</a>
               </li>
               <li className={style.item}>
-                <a href='#registration'>Регистрация</a>
+                <a href='#registration'>{Langs[language].header.menu[1]}</a>
               </li>
               <li className={style.item}>
-                <a href='#reviews'>Отзывы</a>
+                <a href='#reviews'>{Langs[language].header.menu[2]}</a>
               </li>
             </ul>
           </nav>

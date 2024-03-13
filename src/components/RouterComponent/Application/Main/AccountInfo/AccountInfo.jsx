@@ -10,9 +10,12 @@ import { Preloader } from '../../../../../UI/Preloader/Preloader';
 import MyAccounts from './MyAccounts';
 import CustomSelect from './CustomSelect';
 import { AnimatePresence } from 'framer-motion';
+import { useLanguage } from '../../../../../hooks/useLanguage';
+import Langs from '../../../../../locales/translations.json';
 
 export const AccountInfo = () => {
   const dispatch = useDispatch();
+  const { language } = useLanguage();
   const userData = useSelector((state) => state.userAccounts);
   const [toggleSelect, setToggleSelect] = useState(false);
   const [selectValue, setSelectValue] = useState('дате');
@@ -26,17 +29,17 @@ export const AccountInfo = () => {
     const sortSelect = e.target.outerText;
 
     userData.info.accounts.sort((a, b) => {
-      if (sortSelect === 'Номеру счёта') {
+      if (sortSelect === Langs[language].app.accountInfo[0]) {
         return +a.account > +b.account ? -1 : 1;
       }
 
-      if (sortSelect === 'Балансу') return a.balance > b.balance ? -1 : 1;
+      if (sortSelect === Langs[language].app.accountInfo[1]) return a.balance > b.balance ? -1 : 1;
 
-      if (sortSelect === 'Дате') {
+      if (sortSelect === Langs[language].app.accountInfo[2]) {
         return new Date(a.date).getTime() > new Date(b.date).getTime() ? -1 : 1;
       }
 
-      if (sortSelect === 'Последней транзакции') {
+      if (sortSelect === Langs[language].app.accountInfo[3]) {
         const firstTransactionDateToCompare =
           a.transactions.length > 0 ? a.transactions[0].date : 0;
         const secondTransactionDateToCompare =
@@ -55,7 +58,12 @@ export const AccountInfo = () => {
     dispatch(createNewUserAccount());
   };
 
-  const selectData = ['Номеру счёта', 'Балансу', 'Дате', 'Последней транзакции'];
+  const selectData = [
+    Langs[language].app.accountInfo[0],
+    Langs[language].app.accountInfo[1],
+    Langs[language].app.accountInfo[2],
+    Langs[language].app.accountInfo[3],
+  ];
 
   const capitalizeFirstLetter = (string) => string.charAt(0).toUpperCase() + string.slice(1);
 
@@ -68,21 +76,23 @@ export const AccountInfo = () => {
       <div className={style.accountWrapper}>
         <div className={style.accountTitleWrapper}>
           <h1 className={style.accountTitle}>
-            Здравствуйте, {capitalizeFirstLetter(userData.info?.userName)}!
+            {`${Langs[language].app.accountInfo[4]} ${capitalizeFirstLetter(
+              userData.info?.userName
+            )}!`}
           </h1>
           <button onClick={() => createNewAccount()} className={style.accountBtn}>
-            Открыть новый счет
+            {Langs[language].app.accountInfo[5]}
           </button>
         </div>
         <div className={style.accountInfoWrapper}>
-          <p className={style.accountSubtitle}>Мои счета</p>
+          <p className={style.accountSubtitle}>{Langs[language].app.accountInfo[6]}</p>
           <div ref={domNodeRef} className={style.accountSortWrapper}>
             <div
               className={style.accountSortTextWrapper}
               onClick={() => setToggleSelect(!toggleSelect)}>
-              <p className={style.accountSortText}>Сортировка:</p>
+              <p className={style.accountSortText}>{Langs[language].app.accountInfo[7]}</p>
               <button className={style.accountSort}>
-                {`По ${selectValue.toLowerCase()}`}{' '}
+                {`По ${selectValue.toLowerCase()}`}
                 <ArrowSvg className={toggleSelect ? style.activeSelect : ''} />
               </button>
             </div>

@@ -1,12 +1,16 @@
 import style from '../Registration.module.scss';
 import PropTypes from 'prop-types';
 import { useState } from 'react';
+import { useLanguage } from '../../../../../../hooks/useLanguage';
+import Langs from '../../../../../../locales/translations.json';
 
 export const ContactsForm = ({
   contactsFormSubmit,
   formValues,
   handleChange,
 }) => {
+  const { language } = useLanguage();
+
   const phoneRegex = /^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,14}(\s*)?$/;
   const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
 
@@ -59,7 +63,7 @@ export const ContactsForm = ({
         <ul className={style.registrationInputList}>
           <li className={style.registrationInputItem}>
             <label className={style.registrationLabel} htmlFor='phone'>
-              Телефон
+              {Langs[language].main.registration[8]}
             </label>
             <input
               className={style.registrationInput}
@@ -71,12 +75,12 @@ export const ContactsForm = ({
               onChange={(e) => handleChange(e)}
             />
             {!isInputValid.phoneNumber && (
-              <p className={style.inputsError}>Неправильный телефон</p>
+              <p className={style.inputsError}>{Langs[language].main.registration[9]}</p>
             )}
           </li>
           <li className={style.registrationInputItem}>
             <label className={style.registrationLabel} htmlFor='eMail'>
-              Электронная почта
+              {Langs[language].main.registration[10]}
             </label>
             <input
               className={style.registrationInput}
@@ -88,12 +92,12 @@ export const ContactsForm = ({
               onChange={(e) => handleChange(e)}
             />
             {!isInputValid.eMail && (
-              <p className={style.inputsError}>Неправильный e-mail</p>
+              <p className={style.inputsError}>{Langs[language].main.registration[11]}</p>
             )}
           </li>
         </ul>
         <div className={style.nextBtnWrapper}>
-          <button className={style.nextBtn}>Далее</button>
+          <button className={style.nextBtn}>{Langs[language].main.registration[12]}</button>
         </div>
       </div>
     </form>

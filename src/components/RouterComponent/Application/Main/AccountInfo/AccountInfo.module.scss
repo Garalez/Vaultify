@@ -73,8 +73,9 @@
 }
 
 .accountSort {
-  align-self: flex-start;
-  padding-top: 2px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
   font-family: 'Nunito';
   font-style: normal;
   font-weight: 700;

@@ -11,7 +11,8 @@ export const formatDateToNumeric = (date) => {
 const monthsRegex = /[\w | г.]/g;
 
 const formatDateToMonths = (date) => {
-  let string = new Intl.DateTimeFormat('ru', { dateStyle: 'medium' })
+  const locale = localStorage.getItem('language') || 'ru';
+  let string = new Intl.DateTimeFormat(locale.toLowerCase(), { dateStyle: 'medium' })
     .format(new Date(date))
     .replace(monthsRegex, '');
 

@@ -4,20 +4,22 @@ import TransferImg1280 from '../../../../../assets/img/transferLogo1280.png';
 import TransferImg1024 from '../../../../../assets/img/transferLogo1024.png';
 import TransferImg768 from '../../../../../assets/img/transferLogo768.png';
 import useWindowDimensions from '../../../../../hooks/screenViewPort';
+import { useLanguage } from '../../../../../hooks/useLanguage';
+import Langs from '../../../../../locales/translations.json';
 
 export const PlatformInfo = () => {
   const { width } = useWindowDimensions();
+  const { language } = useLanguage();
 
   return (
     <section className={style.infoSection} id='platformInfo'>
       <div className={style.textWrapper}>
         <h1 className={style.title}>Платформа Vaultify</h1>
         <p className={style.subtitle}>
-          Удобная платформа для хранения счётов, перевода валюты и покупки
-          криптовалюты
+          {Langs[language].main.platformInfo[0]}
         </p>
         <a className={style.registrationLink} href='#registration'>
-          Зарегистрироваться
+          {Langs[language].main.platformInfo[1]}
         </a>
       </div>
       <div className={style.imageWrapper}>

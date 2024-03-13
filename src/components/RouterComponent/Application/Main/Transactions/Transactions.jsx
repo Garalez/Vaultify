@@ -9,27 +9,39 @@ import Table from './Table';
 import LineGraph from './LineGraph';
 import DoughnutGraph from './DoughnutGraph';
 import FundsTransfer from './FundsTransfer';
+import { useLanguage } from '../../../../../hooks/useLanguage';
+import Langs from '../../../../../locales/translations.json';
 
 export const Transactions = () => {
   const navigate = useNavigate();
+  const { language } = useLanguage();
   const [searchParams] = useSearchParams();
   const accountId = searchParams.get('id');
   const userData = useSelector((state) => state.userAccounts);
   const accountInfo = userData.info.accounts.find((account) => account.account === accountId);
+  console.log('accountInfo: ', accountInfo);
 
   return (
     accountInfo && (
       <section className={style.transactions}>
         <div className={style.transactionsTitleWrapper}>
-          <h1 className={style.transactionsTitle}>{`Счет №${accountInfo.account}`}</h1>
+          <h1
+            className={
+              style.transactionsTitle
+            }>{`${Langs[language].app.transactions[0]} №${accountInfo.account}`}</h1>
           <button className={style.transactionsBtn} onClick={() => navigate(-1)}>
-            <BackArrowSvg /> Вернуться
+            <BackArrowSvg /> {Langs[language].app.transactions[1]}
           </button>
         </div>
         <div className={style.infoWrapper}>
           <div className={style.transactionsGraphs}>
             <LineGraph accountInfo={accountInfo} />
-            <DoughnutGraph accountInfo={{ balance: accountInfo.balance, ...filterDatesByCurrentWeek(accountInfo) }} />
+            <DoughnutGraph
+              accountInfo={{
+                balance: accountInfo.balance,
+                ...filterDatesByCurrentWeek(accountInfo),
+              }}
+            />
           </div>
           <Table accountInfo={sortArrayByDate(accountInfo.transactions)} />
         </div>
