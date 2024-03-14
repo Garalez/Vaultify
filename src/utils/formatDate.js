@@ -8,19 +8,11 @@ export const formatDateToNumeric = (date) => {
   return new Intl.DateTimeFormat('ru', options).format(new Date(date));
 };
 
-const monthsRegex = /[\w | г.]/g;
-
 const formatDateToMonths = (date) => {
-  const locale = localStorage.getItem('language') || 'ru';
-  let string = new Intl.DateTimeFormat(locale.toLowerCase(), { dateStyle: 'medium' })
-    .format(new Date(date))
-    .replace(monthsRegex, '');
+  const dateString = new Date(date);
+  const month = ('0' + (dateString.getMonth() + 1)).slice(-2);
 
-  if (string === 'мая') {
-    string = 'май';
-  }
-
-  return string.charAt(0).toUpperCase() + string.slice(1);
+  return month;
 };
 
 const sumOfPeriod = (transactions, account) => {
@@ -80,7 +72,7 @@ export const monthlyIncome = (arr) => {
   );
   const monthlyIncomeData = {};
 
-  halfYearTransactions.forEach((item) => {
+  halfYearTransactions.reverse().forEach((item) => {
     const date = new Date(item.date);
 
     if (tmpArray.indexOf(date.getMonth()) === -1) {

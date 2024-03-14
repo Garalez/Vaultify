@@ -33,6 +33,7 @@ export const AccountCreationForm = ({
     const { name } = e.target;
 
     setIsInputValid({ ...isInputValid, [name]: !!formValues[name] });
+
     if (name === 'login') {
       setLoginError(Langs[language].main.registration[15]);
       if (formValues.login.length < 6) {
@@ -43,28 +44,30 @@ export const AccountCreationForm = ({
         dispatch(createUserRequestError(''));
       }
     }
+
+    if (name === 'password') {
+      if (formValues.password.length < 6) {
+        setIsInputValid({ ...isInputValid, password: false });
+      }
+    }
   };
 
   const formSubmit = (e) => {
     e.preventDefault();
 
-    if (formValues.login && formValues.password && (formValues.confirmPassword === formValues.password)) {
+    if (
+      formValues.login &&
+      isInputValid.login &&
+      formValues.password &&
+      isInputValid.password &&
+      formValues.confirmPassword === formValues.password
+    ) {
       accountCreationFormSubmit();
-    } else {
-      setIsInputValid({
-        login: !!formValues.login,
-        password: !!formValues.password,
-        confirmPassword: (formValues.confirmPassword === formValues.password),
-      });
     }
   };
 
   return (
-    <form
-      className={style.registrationForm}
-      action=''
-      onSubmit={(e) => formSubmit(e)}
-    >
+    <form className={style.registrationForm} action='' onSubmit={(e) => formSubmit(e)}>
       <ul className={style.registrationInputList}>
         <li className={style.registrationInputItem}>
           <label className={style.registrationLabel} htmlFor='login'>
@@ -79,9 +82,7 @@ export const AccountCreationForm = ({
             onBlur={(e) => handleBlur(e)}
             onChange={(e) => handleChange(e)}
           />
-          {!isInputValid.login && (
-            <p className={style.inputsError}>{loginError}</p>
-          )}
+          {!isInputValid.login && <p className={style.inputsError}>{loginError}</p>}
         </li>
         <li className={style.registrationInputItem}>
           <label className={style.registrationLabel} htmlFor='password'>
@@ -122,17 +123,10 @@ export const AccountCreationForm = ({
         <button className={style.nextBtn}>{Langs[language].main.registration[21]}</button>
         <div className={style.registrationPolicyWrapper}>
           <div className={style.customCheckboxWrapper}>
-            <input
-              className={style.customCheckboxInput}
-              type='checkbox'
-              id='customCheckbox'
-            />
-            <label
-              className={style.customCheckboxLabel}
-              htmlFor='customCheckbox'
-            >
-              By clicking on the button, I consent to the processing of personal
-              data and agree to the privacy policy
+            <input className={style.customCheckboxInput} type='checkbox' id='customCheckbox' />
+            <label className={style.customCheckboxLabel} htmlFor='customCheckbox'>
+              By clicking on the button, I consent to the processing of personal data and agree to
+              the privacy policy
             </label>
           </div>
         </div>

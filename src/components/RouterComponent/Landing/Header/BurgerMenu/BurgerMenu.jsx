@@ -9,7 +9,7 @@ import Langs from '../../../../../locales/translations.json';
 
 export const BurgerMenu = () => {
   const [isBurgerActive, setIsBurgerActive] = useState(false);
-  const { language } = useLanguage();
+  const { language, setLanguage } = useLanguage();
 
   return (
     <>
@@ -41,6 +41,18 @@ export const BurgerMenu = () => {
                 <a href='#reviews'>{Langs[language].header.menu[2]}</a>
               </li>
             </ul>
+            <div className={style.localeWrapper}>
+              <button
+                className={`${style.localeButton} ${language === 'UA' && style.localeActive}`}
+                onClick={() => setLanguage('UA')}>
+                UA
+              </button>
+              <button
+                className={`${style.localeButton} ${language === 'RU' && style.localeActive}`}
+                onClick={() => setLanguage('RU')}>
+                RU
+              </button>
+            </div>
           </nav>
           <div className={style.underline} />
           <button

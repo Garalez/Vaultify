@@ -19,7 +19,6 @@ export const Transactions = () => {
   const accountId = searchParams.get('id');
   const userData = useSelector((state) => state.userAccounts);
   const accountInfo = userData.info.accounts.find((account) => account.account === accountId);
-  console.log('accountInfo: ', accountInfo);
 
   return (
     accountInfo && (
@@ -43,7 +42,10 @@ export const Transactions = () => {
               }}
             />
           </div>
-          <Table accountInfo={sortArrayByDate(accountInfo.transactions)} />
+          <Table
+            accountTransactions={sortArrayByDate(accountInfo.transactions)}
+            account={accountInfo.account}
+          />
         </div>
         {accountInfo.account && <FundsTransfer accountInfo={accountInfo} />}
       </section>

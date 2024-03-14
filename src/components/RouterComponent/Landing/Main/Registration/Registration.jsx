@@ -49,7 +49,7 @@ export const Registration = () => {
       return setFormValues({ ...formValues, phoneNumber: phoneValue });
     }
 
-    setFormValues({ ...formValues, [name]: value });
+    setFormValues({ ...formValues, [name]: value.replace(/\s/g, '') });
   };
 
   const fullNameFormSubmit = () => {

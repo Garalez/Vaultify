@@ -80,11 +80,6 @@
   flex-direction: column;
 }
 
-.registrationInputItem:last-child {
-  justify-self: flex-end;
-  align-self: flex-end;
-}
-
 .registrationLabel {
   margin-bottom: 2px;
   padding-left: 20px;
@@ -229,12 +224,29 @@
 .inputsError {
   padding-top: 5px;
   padding-left: 15px;
+  font-size: 14px;
   color: red;
 }
 
 @media (max-width: 1230px) {
   .contactWrapper {
     flex-direction: column;
+  }
+
+  .registrationInputList {
+    flex-direction: column;
+  }
+
+  .registrationInput,
+  .registrationInputItem,
+  .registrationAgreementWrapper,
+  .nextBtn {
+    width: 100%;
+  }
+
+  .registrationFormUnderlay {
+    padding-left: 150px;
+    padding-right: 150px;
   }
 }
 
@@ -254,28 +266,16 @@
     font-size: 24px;
   }
 
-  .registrationFormUnderlay {
-    padding-left: 0;
-  }
-
   .registrationForm {
     padding: 0 22px;
-  }
-
-  .registrationInput {
-    width: 315px;
   }
 
   .registrationInputList {
     gap: 17px;
   }
 
-  .nextBtn {
-    width: 315px;
-  }
-
   .inputsError {
-    font-size: 15px;
+    font-size: 12px;
   }
 }
 
@@ -310,13 +310,22 @@
   .contactWrapper {
     gap: 0;
   }
-  
+
   .nextBtnWrapper {
     padding-top: 0;
   }
 
   .registrationInputList {
     gap: 10px;
+  }
+
+  .registrationFormUnderlay {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .inputsError {
+    font-size: 14px;
   }
 }
 
@@ -404,8 +413,9 @@
   }
 
   .inputsError {
-    padding-top: 0;
-    padding-left: 20px;
+    padding-top: 2px;
+    padding-left: 15px;
+    font-size: 11px;
   }
 
   .registrationInputList {

@@ -17,16 +17,16 @@ export const Auth = () => {
     password: '',
   });
 
-  // const [displayErrorMassage, setDisplayErrorMassage] = useState({
-  //   login: false,
-  //   password: false,
-  // });
+  const [displayErrorMassage, setDisplayErrorMassage] = useState({
+    login: false,
+    password: false,
+  });
 
   const inputValidation = () => {
-    // setDisplayErrorMassage({
-    //   // login: !!(userAccountData.login && userAccountData.login.length <= 5),
-    //   // password: !!(userAccountData.password && userAccountData.password.length <= 5),
-    // });
+    setDisplayErrorMassage({
+      login: !!(userAccountData.login && userAccountData.login.length <= 5),
+      password: !!(userAccountData.password && userAccountData.password.length <= 5),
+    });
   };
 
   const handleChange = (e) => {
@@ -38,22 +38,30 @@ export const Auth = () => {
       [name]: value.replace(regexNonWord, ''),
     });
 
-    // if (e.target.name === 'login' && value.length >= 6) {
-    //   setDisplayErrorMassage({ ...displayErrorMassage, login: false });
-    // }
+    if (e.target.name === 'login' && value.length >= 6) {
+      setDisplayErrorMassage({ ...displayErrorMassage, login: false });
+    }
+    if (e.target.name === 'password' && value.length >= 6) {
+      setDisplayErrorMassage({ ...displayErrorMassage, password: false });
+    }
   };
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
 
-    // if (userAccountData.login.length >= 6) {
-    dispatch(
-      userSignInRequestAsync(
-        userAccountData.login.toLowerCase(),
-        userAccountData.password.toLowerCase()
-      )
-    );
-    // }
+    if (
+      userAccountData.login &&
+      !displayErrorMassage.login &&
+      userAccountData.password &&
+      !displayErrorMassage.password
+    ) {
+      dispatch(
+        userSignInRequestAsync(
+          userAccountData.login.toLowerCase(),
+          userAccountData.password.toLowerCase()
+        )
+      );
+    }
   };
 
   return (
@@ -77,9 +85,9 @@ export const Auth = () => {
                   onBlur={() => inputValidation()}
                   required
                 />
-                {/* {displayErrorMassage.login && (
+                {displayErrorMassage.login && (
                   <p className={style.authInputError}>{Langs[language].app.auth[2]}</p>
-                )} */}
+                )}
               </li>
               <li className={style.authInputItem}>
                 <label className={style.authLabel} htmlFor='password'>
@@ -95,9 +103,9 @@ export const Auth = () => {
                   onBlur={() => inputValidation()}
                   required
                 />
-                {/* {displayErrorMassage.password && (
+                {displayErrorMassage.password && (
                   <p className={style.authInputError}>{Langs[language].app.auth[4]}</p>
-                )} */}
+                )}
               </li>
             </ul>
             <div className={style.authBtnWrapper}>

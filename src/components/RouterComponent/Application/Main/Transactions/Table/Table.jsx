@@ -4,7 +4,7 @@ import { formatDateToNumeric } from '../../../../../../utils/formatDate';
 import { useLanguage } from '../../../../../../hooks/useLanguage';
 import Langs from '../../../../../../locales/translations.json';
 
-export const Table = ({ accountInfo }) => {
+export const Table = ({ accountTransactions, account }) => {
   const { language } = useLanguage();
 
   return (
@@ -21,7 +21,7 @@ export const Table = ({ accountInfo }) => {
               </tr>
             </thead>
             <tbody>
-              {accountInfo.map((item, index) => (
+              {accountTransactions.map((item, index) => (
                 <tr key={index} className={style.historyTableRow}>
                   <td className={style.historyTableCell}>
                     <p className={style.historyTableCellAcc}>
@@ -30,8 +30,8 @@ export const Table = ({ accountInfo }) => {
                     </p>
                   </td>
                   <td className={style.historyTableCell}>
-                    <p className={item.to !== accountInfo.account ? style.expenses : undefined}>
-                      {item.to === accountInfo.account ? `+${item.amount}` : `-${item.amount}`}
+                    <p className={item.to !== account ? style.expenses : undefined}>
+                      {item.to === account ? `+${item.amount}` : `-${item.amount}`}
                     </p>
                   </td>
                   <td className={style.historyTableCell}>{formatDateToNumeric(item.date)}</td>
@@ -45,5 +45,6 @@ export const Table = ({ accountInfo }) => {
   );
 };
 Table.propTypes = {
-  accountInfo: PropTypes.array,
+  accountTransactions: PropTypes.array,
+  account: PropTypes.string,
 };

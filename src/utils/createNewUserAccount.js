@@ -18,5 +18,7 @@ export const createNewUserAccount = () => (dispatch) => {
         dispatch(userAccountsRequestAsync());
       }
     })
-    .catch((error) => console.log(error));
+    .catch((error) => {
+      throw new Error(error);
+    });
 };

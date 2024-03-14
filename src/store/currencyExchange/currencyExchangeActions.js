@@ -32,7 +32,7 @@ export const currencyExchangeRequestAsync = (from, to, amount) => (dispatch) => 
     to,
     amount,
   };
-  console.log(transferData);
+
   fetch(`${URL_API}/currency-buy`, {
     method: 'POST',
     headers: {

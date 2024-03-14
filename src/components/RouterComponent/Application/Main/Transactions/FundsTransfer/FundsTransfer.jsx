@@ -3,7 +3,6 @@ import style from './FundsTransfer.module.scss';
 import PropTypes from 'prop-types';
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-// import { useSearchParams } from 'react-router-dom';
 import { accountTransferFundsRequestAsync } from '../../../../../../store/accountTransferFunds/accountTransferFundsActions';
 import { userAccountsRequestAsync } from '../../../../../../store/accountsRequest/accountsRequestActions';
 import { useLanguage } from '../../../../../../hooks/useLanguage';
@@ -12,10 +11,7 @@ import Langs from '../../../../../../locales/translations.json';
 export const FundsTransfer = ({ accountInfo }) => {
   const dispatch = useDispatch();
   const { language } = useLanguage();
-  // const [searchParams] = useSearchParams();
-  // const accountId = searchParams.get('id');
   const transferResponse = useSelector((state) => state.accountTransferFunds);
-  console.log('transferResponse: ', transferResponse);
 
   const [transactionData, setTransactionData] = useState({
     account: '',
@@ -68,7 +64,7 @@ export const FundsTransfer = ({ accountInfo }) => {
       const accountNumberFrom = accountInfo.account;
       const accountNumberTo = transactionData.account;
       const transferAmount = transactionData.sum;
-      console.log({ accountNumberFrom, accountNumberTo, transferAmount });
+
       dispatch(
         accountTransferFundsRequestAsync({
           from: accountNumberFrom,

@@ -16,6 +16,16 @@ import Langs from '../../../../../../locales/translations.json';
 
 export const LineGraph = ({ accountInfo }) => {
   const { language } = useLanguage();
+
+  const monthlyAccountTransactions = {};
+
+  for (const key in monthlyIncome(accountInfo)) {
+    if (Object.hasOwnProperty.call(monthlyIncome(accountInfo), key)) {
+      const monthName = Langs[language].app.months[Number(key)];
+      monthlyAccountTransactions[monthName] = monthlyIncome(accountInfo)[key];
+    }
+  }
+
   ChartJS.register(
     CategoryScale,
     LinearScale,
@@ -114,7 +124,7 @@ export const LineGraph = ({ accountInfo }) => {
   const data = {
     datasets: [
       {
-        data: Object.entries(monthlyIncome(accountInfo)).map(
+        data: Object.entries(monthlyAccountTransactions).map(
           ([key, value]) => ({
             x: key,
             y: value,
