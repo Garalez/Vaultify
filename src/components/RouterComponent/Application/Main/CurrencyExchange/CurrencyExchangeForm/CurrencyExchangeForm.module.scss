@@ -90,13 +90,19 @@
 }
 
 .currencyExchangeSubmitWrapper {
-  align-self: flex-end;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr auto;
   padding-right: 4px;
 }
 
 .currencyExchangeSubmit {
   width: 147px;
   height: 37px;
+  justify-self: flex-end;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background: var(--main-gradient);
   font-family: 'Nunito';
   font-style: normal;
@@ -121,6 +127,23 @@
   background: var(--blue);
 }
 
+.currencyExchangeSubmit:disabled {
+  background: lightgray;
+  cursor: not-allowed;
+}
+
 .customSelectActive {
   border-radius: 6px 6px 0 0;
+}
+
+.currencyExchangeError {
+  justify-self: center;
+  display: flex;
+  align-items: center;
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 16px;
+  color: red;
 }

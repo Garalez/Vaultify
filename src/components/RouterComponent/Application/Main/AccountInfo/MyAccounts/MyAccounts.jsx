@@ -26,8 +26,9 @@ export const MyAccounts = ({ account }) => {
         <div className={style.accountInfoTextWrapper}>
           <p className={style.accountInfoText}>{Langs[language].app.accountInfo[9]}</p>
           <p className={style.accountInfoText}>
-            {account.transactions.length > 0 ? formatDateToNumeric(account.transactions[0].date) :
-            '---'}
+            {account.transactions.length > 0 ?
+              formatDateToNumeric(account.transactions[account.transactions.length - 1].date) :
+              '---'}
           </p>
         </div>
       </div>

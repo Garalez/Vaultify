@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
 
 import { URL_API } from '../../utils/api';
-import { currencyRequest, currencyRequestAsync } from '../currencyRequest/currencyRequestActions';
+import { currencyRequestAsync } from '../currencyRequest/currencyRequestActions';
 
 export const CURRENCY_EXCHANGE_REQUEST = 'CURRENCY_EXCHANGE_REQUEST';
 export const CURRENCY_EXCHANGE_REQUEST_SUCCESS = 'CURRENCY_EXCHANGE_REQUEST_SUCCESS';
@@ -25,7 +25,7 @@ export const currencyExchangeRequestAsync = (from, to, amount) => (dispatch) => 
   const token = localStorage.getItem('bearer');
 
   if (!token || token === 'undefined') return;
-  dispatch(currencyRequest());
+  dispatch(currencyExchangeRequest());
 
   const transferData = {
     from,
@@ -44,7 +44,11 @@ export const currencyExchangeRequestAsync = (from, to, amount) => (dispatch) => 
     .then((response) => {
       if (response.ok) dispatch(currencyRequestAsync());
 
-      throw new Error('Error');
+      if (!response.ok && response.status === 400) {
+        response.json().then((errorMessage) => {
+          dispatch(currencyExchangeRequestError(errorMessage.message));
+        });
+      }
     })
     .catch((error) => dispatch(currencyExchangeRequestError(error)));
 };

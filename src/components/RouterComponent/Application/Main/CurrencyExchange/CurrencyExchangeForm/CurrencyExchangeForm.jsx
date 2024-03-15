@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
 import style from './CurrencyExchangeForm.module.scss';
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import { ReactComponent as SelectArrowSvg } from '../../../../../../assets/svg/blackCustomSelectArrow.svg';
 import { useOutsideClick } from '../../../../../../hooks/useOutsideClick';
@@ -10,10 +10,12 @@ import { CurrencyExchangeCustomSelector } from './CurrencyExchangeCustomSelector
 import { AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../../../../../../hooks/useLanguage';
 import Langs from '../../../../../../locales/translations.json';
+import { RingLoader } from 'react-spinners';
 
 export const CurrencyExchangeForm = ({ currencyTypes }) => {
   const { language } = useLanguage();
   const dispatch = useDispatch();
+  const exchangeRequest = useSelector((state) => state.currencyExchange);
 
   const [openSelectFrom, setOpenSelectFrom] = useState(false);
   const [openSelectTo, setOpenSelectTo] = useState(false);
@@ -109,8 +111,18 @@ export const CurrencyExchangeForm = ({ currencyTypes }) => {
           </li>
         </ul>
         <div className={style.currencyExchangeSubmitWrapper}>
-          <button className={style.currencyExchangeSubmit} type='submit'>
-            {Langs[language].app.exchange[6]}
+          {exchangeRequest.status === 'rejected' && (
+            <p className={style.currencyExchangeError}>{exchangeRequest.error}</p>
+          )}
+          <button
+            className={style.currencyExchangeSubmit}
+            type='submit'
+            disabled={exchangeRequest.status === 'loading'}>
+            {exchangeRequest.status === 'loading' ? (
+              <RingLoader color='#210B36' size={25} speedMultiplier={0.8} />
+            ) : (
+              Langs[language].app.exchange[6]
+            )}
           </button>
         </div>
       </form>

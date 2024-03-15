@@ -46,7 +46,9 @@ export const AccountInfo = () => {
           b.transactions.length > 0 ? b.transactions[0].date : 0;
 
         return new Date(firstTransactionDateToCompare).getTime() >
-          new Date(secondTransactionDateToCompare).getTime() ? -1 : 1;
+          new Date(secondTransactionDateToCompare).getTime() ?
+          -1 :
+          1;
       }
     });
 
