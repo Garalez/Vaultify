@@ -47,7 +47,7 @@ export const Transactions = () => {
             account={accountInfo.account}
           />
         </div>
-        {accountInfo.account && <FundsTransfer accountInfo={accountInfo} />}
+        {accountInfo.account && <FundsTransfer accountInfo={accountInfo} userData={userData} />}
       </section>
     )
   );

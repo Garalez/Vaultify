@@ -1,0 +1,40 @@
+.localeOverlay {
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(6.9px);
+  -webkit-backdrop-filter: blur(6.9px);
+  border: 1px solid rgba(255, 255, 255, 0.31);
+}
+
+.localeWrapper {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 5px 10px;
+}
+
+.localeButton {
+  background: transparent;
+  border-radius: 5px;
+  border: none;
+  padding: 1px 7px;
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 20px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.localeButton:hover {
+  background: var(--pink);
+  color: var(--white);
+}
+
+.localeActive {
+  background: var(--pink);
+  color: var(--white);
+}

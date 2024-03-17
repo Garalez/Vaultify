@@ -107,7 +107,8 @@
   border: 2px solid var(--pink);
 }
 
-.nextBtn {
+.nextBtn,
+.lastButton {
   width: 380px;
   height: 70px;
   align-self: flex-end;
@@ -122,15 +123,18 @@
   border-radius: 10px;
 }
 
-.nextBtn:hover {
+.nextBtn:hover,
+.lastButton:hover {
   background: var(--main-gradient-hover);
 }
 
-.nextBtn:focus {
+.nextBtn:focus,
+.lastButton:focus {
   background: var(--main-gradient-focus);
 }
 
-.nextBtn:disabled {
+.nextBtn:disabled,
+.lastButton:disabled {
   background: var(--grey);
   cursor: initial;
 }

@@ -16,6 +16,7 @@ export const AccountCreationForm = ({
   const dispatch = useDispatch();
   const { language } = useLanguage();
   const [loginError, setLoginError] = useState('');
+  const [isAgreementChecked, setIsAgreementChecked] = useState(true);
   const [isInputValid, setIsInputValid] = useState({
     login: true,
     password: true,
@@ -120,11 +121,11 @@ export const AccountCreationForm = ({
         </li>
       </ul>
       <div className={style.registrationAgreementWrapper}>
-        <button className={style.nextBtn}>{Langs[language].main.registration[21]}</button>
+        <button className={style.lastButton} disabled={!isAgreementChecked}>{Langs[language].main.registration[21]}</button>
         <div className={style.registrationPolicyWrapper}>
-          <div className={style.customCheckboxWrapper}>
-            <input className={style.customCheckboxInput} type='checkbox' id='customCheckbox' />
-            <label className={style.customCheckboxLabel} htmlFor='customCheckbox'>
+          <div className={style.customCheckboxWrapper} onClick={() => setIsAgreementChecked(!isAgreementChecked)}>
+            <input className={style.customCheckboxInput} type='checkbox' checked={isAgreementChecked} readOnly />
+            <label className={style.customCheckboxLabel}>
               By clicking on the button, I consent to the processing of personal data and agree to
               the privacy policy
             </label>

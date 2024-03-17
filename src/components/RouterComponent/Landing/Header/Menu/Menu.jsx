@@ -1,9 +1,10 @@
+import { LocaleButtons } from '../../../../../UI/LocaleButtons/LocaleButtons';
 import { useLanguage } from '../../../../../hooks/useLanguage';
 import Langs from '../../../../../locales/translations.json';
 import style from './Menu.module.scss';
 
 export const Menu = () => {
-  const { language, setLanguage } = useLanguage();
+  const { language } = useLanguage();
 
   return (
     <nav className={style.navigate}>
@@ -24,18 +25,7 @@ export const Menu = () => {
           </a>
         </li>
         <li className={style.item}>
-          <div className={style.localeWrapper}>
-            <button
-              className={`${style.localeButton} ${language === 'UA' && style.localeActive}`}
-              onClick={() => setLanguage('UA')}>
-              UA
-            </button>
-            <button
-              className={`${style.localeButton} ${language === 'RU' && style.localeActive}`}
-              onClick={() => setLanguage('RU')}>
-              RU
-            </button>
-          </div>
+          <LocaleButtons />
         </li>
       </ul>
     </nav>

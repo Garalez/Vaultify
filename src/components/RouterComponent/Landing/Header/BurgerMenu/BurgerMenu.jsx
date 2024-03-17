@@ -6,10 +6,11 @@ import { ReactComponent as CloseSvg } from '../../../../../assets/svg/burgerMenu
 import { ReactComponent as BurgerLogoSvg } from '../../../../../assets/svg/burgerMenu.svg';
 import { useLanguage } from '../../../../../hooks/useLanguage';
 import Langs from '../../../../../locales/translations.json';
+import { LocaleButtons } from '../../../../../UI/LocaleButtons/LocaleButtons';
 
 export const BurgerMenu = () => {
   const [isBurgerActive, setIsBurgerActive] = useState(false);
-  const { language, setLanguage } = useLanguage();
+  const { language } = useLanguage();
 
   return (
     <>
@@ -42,16 +43,7 @@ export const BurgerMenu = () => {
               </li>
             </ul>
             <div className={style.localeWrapper}>
-              <button
-                className={`${style.localeButton} ${language === 'UA' && style.localeActive}`}
-                onClick={() => setLanguage('UA')}>
-                UA
-              </button>
-              <button
-                className={`${style.localeButton} ${language === 'RU' && style.localeActive}`}
-                onClick={() => setLanguage('RU')}>
-                RU
-              </button>
+              <LocaleButtons />
             </div>
           </nav>
           <div className={style.underline} />

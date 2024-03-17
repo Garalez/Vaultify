@@ -21,7 +21,7 @@ export const CurrencyExchangeForm = ({ currencyTypes }) => {
   const [openSelectTo, setOpenSelectTo] = useState(false);
 
   const [selectFromValue, setSelectFromValue] = useState(currencyTypes[0]);
-  const [selectToValue, setSelectToValue] = useState(currencyTypes[0]);
+  const [selectToValue, setSelectToValue] = useState(currencyTypes[1]);
 
   const [transferSum, setTransferSum] = useState('');
 
@@ -51,6 +51,9 @@ export const CurrencyExchangeForm = ({ currencyTypes }) => {
     setOpenSelectTo(false);
   };
 
+  const filteredFromCurrencyTypes = currencyTypes.filter((item) => item !== selectFromValue);
+  const filteredToCurrencyTypes = currencyTypes.filter((item) => item !== selectToValue);
+
   return (
     <section className={style.currencyExchange}>
       <h3 className={style.currencyExchangeTitle}>{Langs[language].app.exchange[2]}</h3>
@@ -71,7 +74,7 @@ export const CurrencyExchangeForm = ({ currencyTypes }) => {
             <AnimatePresence>
               {openSelectFrom && (
                 <CurrencyExchangeCustomSelector
-                  currencyTypes={currencyTypes}
+                  currencyTypes={filteredToCurrencyTypes}
                   onClick={handleSelectFrom}
                 />
               )}
@@ -92,7 +95,7 @@ export const CurrencyExchangeForm = ({ currencyTypes }) => {
             <AnimatePresence>
               {openSelectTo && (
                 <CurrencyExchangeCustomSelector
-                  currencyTypes={currencyTypes}
+                  currencyTypes={filteredFromCurrencyTypes}
                   onClick={handleSelectTo}
                 />
               )}
@@ -112,7 +115,7 @@ export const CurrencyExchangeForm = ({ currencyTypes }) => {
         </ul>
         <div className={style.currencyExchangeSubmitWrapper}>
           {exchangeRequest.status === 'rejected' && (
-            <p className={style.currencyExchangeError}>{exchangeRequest.error}</p>
+            <p className={style.currencyExchangeError}>{Langs[language].app.exchange[8]}</p>
           )}
           <button
             className={style.currencyExchangeSubmit}

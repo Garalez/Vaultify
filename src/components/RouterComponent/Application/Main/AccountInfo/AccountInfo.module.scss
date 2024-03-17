@@ -202,3 +202,51 @@
 .activeSelect {
   transform: rotate(180deg);
 }
+
+@media (max-width: 1200px) {
+  .accountWrapper {
+    padding: 70px 30px 40px 30px;
+  }
+
+  .accountList {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .accountItem {
+    width: 600px;
+  }
+
+  .accountInfoWrapper {
+    margin-bottom: 35px;
+  }
+}
+
+@media (max-width: 650px) {
+  .accountTitleWrapper {
+    margin-bottom: 40px;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .accountItem {
+    width: 370px;
+  }
+
+  .accountWrapper {
+    padding: 40px 30px 40px 30px;
+  }
+
+  .accountList {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .accountInfoWrapper {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+}

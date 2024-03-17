@@ -7,8 +7,9 @@ import { accountTransferFundsRequestAsync } from '../../../../../../store/accoun
 import { userAccountsRequestAsync } from '../../../../../../store/accountsRequest/accountsRequestActions';
 import { useLanguage } from '../../../../../../hooks/useLanguage';
 import Langs from '../../../../../../locales/translations.json';
+import { RingLoader } from 'react-spinners';
 
-export const FundsTransfer = ({ accountInfo }) => {
+export const FundsTransfer = ({ accountInfo, userData }) => {
   const dispatch = useDispatch();
   const { language } = useLanguage();
   const transferResponse = useSelector((state) => state.accountTransferFunds);
@@ -51,20 +52,25 @@ export const FundsTransfer = ({ accountInfo }) => {
   const transferSubmit = (e) => {
     e.preventDefault();
 
+    const accountNumberFrom = accountInfo.account;
+    const accountNumberTo = transactionData.account;
+    const transferAmount = transactionData.sum;
+
     setDisplayErrorMassage({
       account: !transactionData.account,
       sum: !transactionData.sum,
     });
 
+    const isToTransferAccountUsers = userData.info.accounts.find(
+      (account) => account.account === accountNumberTo
+    );
+
     if (
+      isToTransferAccountUsers &&
       transactionData.account &&
       transactionData.sum &&
       +transactionData.sum <= +accountInfo.balance
     ) {
-      const accountNumberFrom = accountInfo.account;
-      const accountNumberTo = transactionData.account;
-      const transferAmount = transactionData.sum;
-
       dispatch(
         accountTransferFundsRequestAsync({
           from: accountNumberFrom,
@@ -72,17 +78,23 @@ export const FundsTransfer = ({ accountInfo }) => {
           amount: transferAmount,
         })
       );
+    } else if (!isToTransferAccountUsers) {
+      setDisplayErrorMassage({
+        ...displayErrorMassage,
+        account: true,
+      });
+    } else if (+transactionData.sum > +accountInfo.balance) {
+      setDisplayErrorMassage({
+        ...displayErrorMassage,
+        sum: true,
+      });
     }
   };
 
   return (
     <section className={style.transfer}>
       <h2 className={style.transferTitle}>{Langs[language].app.transactions[18]}</h2>
-      <form
-        className={style.transferForm}
-        action=''
-        onSubmit={(e) => transferSubmit(e)}
-      >
+      <form className={style.transferForm} action='' onSubmit={(e) => transferSubmit(e)}>
         <ul className={style.transferList}>
           <li className={style.transferItem}>
             <label className={style.transferLabel} htmlFor='account'>
@@ -96,8 +108,7 @@ export const FundsTransfer = ({ accountInfo }) => {
               onChange={(e) => handleChange(e)}
               value={transactionData.account}
             />
-            {displayErrorMassage.account ||
-            (transferResponse.error === 'Invalid account to') ? (
+            {displayErrorMassage.account || transferResponse.error === 'Invalid account to' ? (
               <p className={style.authInputError}>{Langs[language].app.transactions[20]}</p>
             ) : (
               <></>
@@ -120,8 +131,15 @@ export const FundsTransfer = ({ accountInfo }) => {
             )}
           </li>
           <li className={style.transferItem}>
-            <button className={style.transferFormSubmit} type='submit'>
-              {Langs[language].app.transactions[23]}
+            <button
+              className={style.transferFormSubmit}
+              type='submit'
+              disabled={transferResponse.status === 'loading'}>
+              {transferResponse.status === 'loading' ? (
+                <RingLoader color='#210B36' size={50} speedMultiplier={0.8} />
+              ) : (
+                Langs[language].app.transactions[23]
+              )}
             </button>
           </li>
         </ul>
@@ -132,4 +150,5 @@ export const FundsTransfer = ({ accountInfo }) => {
 
 FundsTransfer.propTypes = {
   accountInfo: PropTypes.object,
+  userData: PropTypes.object,
 };

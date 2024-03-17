@@ -58,6 +58,9 @@
 .transferFormSubmit {
   width: 380px;
   height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background: var(--main-gradient);
   border: none;
   border-radius: 10px;
@@ -82,9 +85,20 @@
   background: var(--blue);
 }
 
+.transferFormSubmit:disabled {
+  background: lightgray;
+  cursor: not-allowed;
+}
+
 .authInputError {
   position: absolute;
   bottom: -30px;
   left: 15px;
   color: red;
+}
+
+@media (max-width: 1180px) {
+  .transferTitle {
+    text-align: center;
+  }
 }
